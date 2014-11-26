@@ -29,6 +29,8 @@
   </head>
   <body>
 
+
+
     <!-- Static navbar -->
     <div class="navbar navbar-default navbar-static-top" role="navigation">
       <div class="container">
@@ -56,66 +58,81 @@
           </form>
         </div>
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Institucional <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Quem Somos</a></li>
-                <li><a href="#">Direção</a></li>
-                <li><a href="#">Histórico</a></li>
-                <li><a href="#">Responsabilidade Social</a></li>
-                <li><a href="#">Parceiros</a></li>
-                <li><a href="#">Ouvidoria</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">CRR <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Administração do Campus</a></li>
-                <li><a href="#">Setor Pedagógico</a></li>
-                <li><a href="#">Departamentos</a></li>
-                <li><a href="#">Incubadora de Empresas</a></li>
-                <li><a href="#">Centro de Energia Renovável</a></li>
-                <li><a href="#">Centro de Desenvolvimento e Inovação Tecnológica</a></li>
-                <li><a href="#">Biblioteca CTC-F</a></li>
-                <li><a href="#">Laboratório</a></li>
-                <li><a href="#">Centro Acadêmico</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Faculdade de Tecnologia</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ensino <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li class="dropdown-header">Graduação</li>
-                <li><a href="#">Engenharia de Produção</a></li>
-                <li><a href="#">Engenharia Mecânica</a></li>
-                <li><a href="#">Engenharia Química</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Pós-graduação<small>Lato Sensu (Especialização)</small></li>
-                <li><a href="#">Engenharia de Produção com Ênfase em Gestão Industrial</a></li>
-                <li><a href="#">Engenharia de Qualidade</a></li>
-                <li><a href="#">Logística e Supply Chain</a></li>
-                <li><a href="#">Gestão de Projetos da Engenharia de Produção</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Pós-graduação<small>Stricto Sensu (Mestrado)</small></li>
-                <li><a href="#">Energia e Meio Ambiente</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pesquisa <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Grupos de Pesquisa no CNPq</a></li>
-                <li><a href="#">Pesquisas isoladas</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Extensão</a></li>
-            <li><a href="#">Instalações</a></li>
-            <li><a href="#">Notícias</a></li>
-            <li><a href="#">Vestibular</a></li>
-            <li><a href="#">Contato</a></li>
-          </ul>
+
+            <?php
+            wp_nav_menu( array(
+                    'menu'              => 'navigation',
+                    'theme_location'    => 'primary',
+                    'depth'             => 2,
+                    'container'         => 'div',
+                    'container_class'   => 'navbar-collapse collapse',
+                    'container_id'      => 'bs-example-navbar-collapse-1',
+                    'menu_class'        => 'nav navbar-nav',
+                    'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                    'walker'            => new wp_bootstrap_navwalker())
+            );
+            ?>
+
+<!--          <ul class="nav navbar-nav">-->
+<!--            <li class="active"><a href="#">Home</a></li>-->
+<!--            <li class="dropdown">-->
+<!--              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Institucional <span class="caret"></span></a>-->
+<!--              <ul class="dropdown-menu" role="menu">-->
+<!--                <li><a href="#">Quem Somos</a></li>-->
+<!--                <li><a href="#">Direção</a></li>-->
+<!--                <li><a href="#">Histórico</a></li>-->
+<!--                <li><a href="#">Responsabilidade Social</a></li>-->
+<!--                <li><a href="#">Parceiros</a></li>-->
+<!--                <li><a href="#">Ouvidoria</a></li>-->
+<!--              </ul>-->
+<!--            </li>-->
+<!--            <li class="dropdown">-->
+<!--              <a href="#" class="dropdown-toggle" data-toggle="dropdown">CRR <span class="caret"></span></a>-->
+<!--              <ul class="dropdown-menu" role="menu">-->
+<!--                <li><a href="#">Administração do Campus</a></li>-->
+<!--                <li><a href="#">Setor Pedagógico</a></li>-->
+<!--                <li><a href="#">Departamentos</a></li>-->
+<!--                <li><a href="#">Incubadora de Empresas</a></li>-->
+<!--                <li><a href="#">Centro de Energia Renovável</a></li>-->
+<!--                <li><a href="#">Centro de Desenvolvimento e Inovação Tecnológica</a></li>-->
+<!--                <li><a href="#">Biblioteca CTC-F</a></li>-->
+<!--                <li><a href="#">Laboratório</a></li>-->
+<!--                <li><a href="#">Centro Acadêmico</a></li>-->
+<!--                <li class="divider"></li>-->
+<!--                <li><a href="#">Faculdade de Tecnologia</a></li>-->
+<!--              </ul>-->
+<!--            </li>-->
+<!--            <li class="dropdown">-->
+<!--              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ensino <span class="caret"></span></a>-->
+<!--              <ul class="dropdown-menu" role="menu">-->
+<!--                <li class="dropdown-header">Graduação</li>-->
+<!--                <li><a href="#">Engenharia de Produção</a></li>-->
+<!--                <li><a href="#">Engenharia Mecânica</a></li>-->
+<!--                <li><a href="#">Engenharia Química</a></li>-->
+<!--                <li class="divider"></li>-->
+<!--                <li class="dropdown-header">Pós-graduação<small>Lato Sensu (Especialização)</small></li>-->
+<!--                <li><a href="#">Engenharia de Produção com Ênfase em Gestão Industrial</a></li>-->
+<!--                <li><a href="#">Engenharia de Qualidade</a></li>-->
+<!--                <li><a href="#">Logística e Supply Chain</a></li>-->
+<!--                <li><a href="#">Gestão de Projetos da Engenharia de Produção</a></li>-->
+<!--                <li class="divider"></li>-->
+<!--                <li class="dropdown-header">Pós-graduação<small>Stricto Sensu (Mestrado)</small></li>-->
+<!--                <li><a href="#">Energia e Meio Ambiente</a></li>-->
+<!--              </ul>-->
+<!--            </li>-->
+<!--            <li class="dropdown">-->
+<!--              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pesquisa <span class="caret"></span></a>-->
+<!--              <ul class="dropdown-menu" role="menu">-->
+<!--                <li><a href="#">Grupos de Pesquisa no CNPq</a></li>-->
+<!--                <li><a href="#">Pesquisas isoladas</a></li>-->
+<!--              </ul>-->
+<!--            </li>-->
+<!--            <li><a href="#">Extensão</a></li>-->
+<!--            <li><a href="#">Instalações</a></li>-->
+<!--            <li><a href="#">Notícias</a></li>-->
+<!--            <li><a href="#">Vestibular</a></li>-->
+<!--            <li><a href="#">Contato</a></li>-->
+<!--          </ul>-->
         </div><!--/.nav-collapse -->
       </div>
     </div>
