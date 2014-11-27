@@ -13,7 +13,7 @@ get_header(); ?>
         <div class="row">
           <div class="col-md-12">
             <h3 class="text-uppercase"><?php the_title(); ?></h3>
-            <ul class="breadcrumb"><?php $terms = get_the_terms( $post->ID, 'tipo_curso' );$categories = $terms;print_r($terms[1]);if(count($terms) > 1 && $terms[1]->slug == "pos-graduacao"){echo $categories = array_reverse($terms);} ?>
+            <ul class="breadcrumb"><?php $terms = get_the_terms( $post->ID, 'tipo_curso' );$categories = $terms;print_r($terms);if(count($terms) > 1 && $terms[1]->slug == "pos-graduacao"){echo $categories = array_reverse($terms);} ?>
               <li><a href="#">Home</a></li>
               <li><a href="#">Ensino</a></li>
               <?php foreach($categories as $cat): ?>
