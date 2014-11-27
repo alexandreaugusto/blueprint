@@ -22,6 +22,11 @@ function wpt_remove_version() {
 
 add_filter('the_generator', 'wpt_remove_version');
 
+function changePostDegree($terms) {
+    echo count($terms);
+    print_r($terms);
+}
+
 include_once('fields.php');
 
 ?>
