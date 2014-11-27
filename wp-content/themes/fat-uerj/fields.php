@@ -22,10 +22,6 @@ function create_post_type() {
         'description' => 'Cursos da FAT/UERJ',
         'public' => true,
         'has_archive' => true,
-        'rewrite' => array(
-            'slug' => 'curso',
-            'with_front' => true
-        ),
         'taxonomies' => array('post_tag')
       )
     );
@@ -47,7 +43,6 @@ function create_taxonomy_curso_category() {
         'show_ui' => true,
         'show_in_tag_cloud' => true,
         'query_var' => true,
-        'rewrite' => array('slug'=>'ensino', 'with_front'=>false)
          )
     );
 }
