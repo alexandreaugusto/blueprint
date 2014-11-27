@@ -25,9 +25,10 @@
     <!-- ShareThis -->
     <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
     <script type="text/javascript">stLight.options({publisher: "ur-a9642a8-c8e2-13c0-f3c2-77643cdbed44", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
-
+    
+    <?php wp_head(); ?>
   </head>
-  <body>
+  <body <?php body_class(); ?>>
 
     <!-- Static navbar -->
     <div class="navbar navbar-default navbar-static-top" role="navigation">
