@@ -14,7 +14,7 @@ function create_post_type() {
             'all_items' => __('Todos cursos'),
             'view_item' => __('Ver curso'),
             'search_items' => __('Procurar cursos'),
-            'not_found' =>  __('Curso não encontrado'),
+            'not_found' => __('Curso não encontrado'),
             'not_found_in_trash' => __('Nao foram encontrados cursos na lixeira'),
             'parent_item_colon' => '',
             'menu_name' => 'Cursos'
@@ -23,7 +23,7 @@ function create_post_type() {
         'public' => true,
         'has_archive' => true,
         'taxonomies' => array('post_tag')
-      )
+            )
     );
 }
 
@@ -43,9 +43,31 @@ function create_taxonomy_curso_category() {
         'show_ui' => true,
         'show_in_tag_cloud' => true,
         'query_var' => true,
-         )
+            )
     );
 }
 
 //adicionando categoria especifica dos produtos
 add_action('init', 'create_taxonomy_curso_category');
+
+//exibir select das categorias no tipo produto
+add_action('restrict_manage_posts', 'my_restrict_manage_posts');
+
+function my_restrict_manage_posts() {
+    global $typenow;
+    $taxonomy = 'tipo_curso';
+    if ($typenow == 'curso') {
+        $filters = array($taxonomy);
+        foreach ($filters as $tax_slug) {
+            $tax_obj = get_taxonomy($tax_slug);
+            $tax_name = $tax_obj->labels->name;
+            $terms = get_terms($tax_slug);
+            echo "<select name='$tax_slug' id='$tax_slug' class='postform'>";
+            echo "<option value=''>Mostrar tudo</option>";
+            foreach ($terms as $term) {
+                echo '<option value=' . $term->slug, $_GET[$tax_slug] == $term->slug ? ' selected="selected"' : '', '>' . $term->name . ' (' . $term->count . ')</option>';
+            }
+            echo "</select>";
+        }
+    }
+}
