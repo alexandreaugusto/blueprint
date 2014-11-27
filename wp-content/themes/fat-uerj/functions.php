@@ -11,6 +11,9 @@ add_theme_support('menus');
 
 add_filter('show_admin_bar', '__return_false');
 
+//post-thumbnail
+add_theme_support('post-thumbnails');
+
 remove_action('wp_head', 'wp_generator');
 
 function wpt_remove_version() {
