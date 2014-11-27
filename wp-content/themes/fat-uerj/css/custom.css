@@ -33,7 +33,15 @@
 /* Dropdown */
 .navbar-nav>li>.dropdown-menu { border-top: 5px solid #007eb4; }
 .dropdown-header { text-transform: uppercase; line-height: 1.346; font-size: 13px; color: #007336; font-weight: 500; }
-.dropdown-header small { display: block; text-transform: capitalize; }
+.dropdown-header-small {
+    padding: 0px 20px 8px 20px;
+    font-size: 10px;
+    line-height: 0.7;
+    color: #007336;
+    white-space: nowrap;
+    text-transform: capitalize;
+    font-weight: 500;
+}
 .dropdown-menu { font-size: 12px; }
 .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-color: #e5f1ea; }
 
@@ -73,7 +81,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007138', end
 .jumbotron .bg>img.before-mask { left: 0; }
 .jumbotron .bg>img.after-mask { right: 0; }
 /* Image animate CSS3 */
-.jumbotron .row>div .bg>img.thumb-featured { 
+.jumbotron .row>div .bg>img.thumb-featured {
 	-webkit-transition: all .3s ease-in-out;
 	-moz-transition: all .3s ease-in-out;
 	-o-transition: all .3s ease-in-out;
@@ -134,7 +142,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007138', end
 aside>div+div { margin-top: 30px; }
 
 /* Footer */
-footer .sitemap { padding: 3em 0; 
+footer .sitemap { padding: 3em 0;
 background: #007138;
 background: -moz-linear-gradient(45deg,  #007138 0%, #007eb4 100%);
 background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#007138), color-stop(100%,#007eb4));
@@ -147,7 +155,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007138', end
 footer *, footer small, footer a:hover { color: #ffffff; }
 footer li { list-style: square inside; font-size: 12px; }
 .sitemap-header { list-style: none; font-weight: bold; text-transform: uppercase; margin-top: 30px; }
-.sitemap-header small { display: block; }
+.sitemap-header-small { list-style: none; font-weight: bold; text-transform: uppercase; font-size: 10px; }
 .sitemap-header:first-child { margin: 0; }
 footer .copyright { background-color: #007eb4; padding: 3em 0; }
 footer .copyright img { width: 100%; }
