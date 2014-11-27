@@ -58,6 +58,7 @@
             </div>
           </form>
         </div>
+        <div class="navbar-collapse collapse">
 
             <?php
             wp_nav_menu( array(
@@ -133,6 +134,6 @@
 <!--            <li><a href="#">Vestibular</a></li>-->
 <!--            <li><a href="#">Contato</a></li>-->
 <!--          </ul>-->
-
+        </div><!--/.nav-collapse -->
       </div>
     </div>
