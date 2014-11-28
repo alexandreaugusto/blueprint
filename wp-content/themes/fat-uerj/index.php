@@ -61,6 +61,7 @@ get_header(); ?>
             <h2 class="text-center text-uppercase page-header">Conheça nossos cursos</h2>
             <div class="col-md-4">
                   <h4 class="text-uppercase">Graduação</h4>
+                  <?php $graduacao = new WP_Query(array('post_type' => 'curso', 'category_name' => 'graduacao')); ?>
                     <!-- Controls -->
                     <a class="left carousel-control" href="#carousel-graduacao" role="button" data-slide="prev">
                       <span class="glyphicon glyphicon-chevron-left"></span>
@@ -72,21 +73,19 @@ get_header(); ?>
                   <div id="carousel-graduacao" class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
+                      <?php while($graduacao->have_posts()):$graduacao->the_post(); ?>
                       <div class="item active">
-                        <h4>Engenharia de Produção</h4>
-                        <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
-                        <p><a class="btn btn-primary" role="button">Saiba mais</a></p>
+                        <h4><?php the_title() ?></h4>
+                        <p><?php the_excerpt() ?></p>
+                        <p><a class="btn btn-primary" href="<?php the_permalink() ?>" role="button">Saiba mais</a></p>
                       </div>
-                      <div class="item">
-                        <h4>Engenharia de Mecânica</h4>
-                        <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
-                        <p><a class="btn btn-primary" role="button">Saiba mais</a></p>
-                      </div>
+                      <?php endwhile; ?>
                     </div>
                   </div>
               </div>
             <div class="col-md-4">
                   <h4 class="text-uppercase">Pós-Graduação <small>Lato Sensu (Especialização)</small></h4>
+                  <?php $latoSensu = new WP_Query(array('post_type' => 'curso', 'category_name' => 'lato-sensu')); ?>
                     <!-- Controls -->
                     <a class="left carousel-control" href="#carousel-pos" role="button" data-slide="prev">
                       <span class="glyphicon glyphicon-chevron-left"></span>
@@ -98,21 +97,19 @@ get_header(); ?>
                   <div id="carousel-pos" class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
+                      <?php while($latoSensu->have_posts()):$latoSensu->the_post(); ?>
                       <div class="item active">
-                        <h4>Engenharia de Produção com Ênfase em Gestão Industrial</h4>
-                        <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
-                        <p><a class="btn btn-primary" role="button">Saiba mais</a></p>
+                        <h4><?php the_title ?></h4>
+                        <p><?php the_excerpt() ?></p>
+                        <p><a class="btn btn-primary" href="<?php the_permalink() ?>" role="button">Saiba mais</a></p>
                       </div>
-                      <div class="item">
-                        <h4>Engenharia de Qualidade</h4>
-                        <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
-                        <p><a class="btn btn-primary" role="button">Saiba mais</a></p>
-                      </div>
+                      <?php endwhile; ?>
                     </div>
                   </div>
               </div>
             <div class="col-md-4">
                   <h4 class="text-uppercase">Pós-Graduação <small>Stricto Sensu (Mestrado)</small></h4>
+                  <?php $strictoSensu = new WP_Query(array('post_type' => 'curso', 'category_name' => 'stricto-sensu')); ?>
                     <!-- Controls
                     <a class="left carousel-control" href="#carousel-mestrado" role="button" data-slide="prev">
                       <span class="glyphicon glyphicon-chevron-left"></span>
@@ -124,11 +121,13 @@ get_header(); ?>
                   <div id="carousel-mestrado" class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
+                      <?php while($strictoSensu->have_posts()):$strictoSensu->the_post(); ?>
                       <div class="item active">
-                        <h4>Energia e Meio Ambiente</h4>
-                        <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
-                        <p><a class="btn btn-primary" role="button">Saiba mais</a></p>
+                        <h4><?php the_title() ?></h4>
+                        <p><?php the_excerpt() ?></p>
+                        <p><a class="btn btn-primary" href="<?php the_permalink() ?>" role="button">Saiba mais</a></p>
                       </div>
+                      <?php endwhile; ?>
                     </div>
                   </div>
               </div>

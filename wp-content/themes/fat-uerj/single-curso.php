@@ -23,7 +23,7 @@ get_header(); ?>
                         $categories = array_reverse ($terms);
                 endforeach;
               ?>
-              <li><a href="#">Home</a></li>
+              <li><a href="<?php bloginfo("url") ?>">Home</a></li>
               <li><a href="#">Ensino</a></li>
               <?php foreach($categories as $cat): ?>
               <li><a href="#"><?php echo $cat->name; ?></a></li>

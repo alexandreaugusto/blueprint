@@ -22,7 +22,7 @@ get_header();
         ?>
                         <h3 class="text-uppercase"><?php echo $titulo[0]; ?></h3>
                         <ul class="breadcrumb">
-                            <li><a href="#">Home</a></li>
+                            <li><a href="<?php bloginfo("url") ?>">Home</a></li>
                             <li><a href="#"><?php echo $titulo[0]; ?></a></li>
                             <li class="active"><?php the_title() ?></li>
                         </ul>
