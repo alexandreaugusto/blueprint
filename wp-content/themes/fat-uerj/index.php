@@ -61,7 +61,7 @@ get_header(); ?>
             <h2 class="text-center text-uppercase page-header">Conheça nossos cursos</h2>
             <div class="col-md-4">
                   <h4 class="text-uppercase">Graduação</h4>
-                  <?php $graduacao = new WP_Query(array('post_type' => 'curso', 'tax_query' => array('taxonomy' => 'tipo_curso', 'field' => 'slug', 'terms' => 'graduacao'))); ?>
+                  <?php $graduacao = new WP_Query(array('post_type' => 'curso', 'tipo_curso' => 'graduacao')); ?>
                     <!-- Controls -->
                     <a class="left carousel-control" href="#carousel-graduacao" role="button" data-slide="prev">
                       <span class="glyphicon glyphicon-chevron-left"></span>
@@ -85,7 +85,7 @@ get_header(); ?>
               </div>
             <div class="col-md-4">
                   <h4 class="text-uppercase">Pós-Graduação <small>Lato Sensu (Especialização)</small></h4>
-                  <?php $latoSensu = new WP_Query(array('post_type' => 'curso', 'tax_query' => array('taxonomy' => 'tipo_curso', 'field' => 'slug', 'terms' => 'lato-sensu'))); ?>
+                  <?php $latoSensu = new WP_Query(array('post_type' => 'curso', 'tipo_curso' => 'lato-sensu')); ?>
                     <!-- Controls -->
                     <a class="left carousel-control" href="#carousel-pos" role="button" data-slide="prev">
                       <span class="glyphicon glyphicon-chevron-left"></span>
@@ -99,7 +99,7 @@ get_header(); ?>
                     <div class="carousel-inner">
                       <?php while($latoSensu->have_posts()):$latoSensu->the_post(); ?>
                       <div class="item active">
-                        <h4><?php the_title ?></h4>
+                        <h4><?php the_title() ?></h4>
                         <p><?php the_excerpt() ?></p>
                         <p><a class="btn btn-primary" href="<?php the_permalink() ?>" role="button">Saiba mais</a></p>
                       </div>
@@ -109,7 +109,7 @@ get_header(); ?>
               </div>
             <div class="col-md-4">
                   <h4 class="text-uppercase">Pós-Graduação <small>Stricto Sensu (Mestrado)</small></h4>
-                  <?php $strictoSensu = new WP_Query(array('post_type' => 'curso', 'tax_query' => array('taxonomy' => 'tipo_curso', 'field' => 'slug', 'terms' => 'stricto-sensu'))); ?>
+                  <?php $strictoSensu = new WP_Query(array('post_type' => 'curso', 'tipo_curso' => 'stricto-sensu')); ?>
                     <!-- Controls
                     <a class="left carousel-control" href="#carousel-mestrado" role="button" data-slide="prev">
                       <span class="glyphicon glyphicon-chevron-left"></span>
