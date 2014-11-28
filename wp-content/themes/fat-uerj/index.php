@@ -17,11 +17,11 @@ get_header(); ?>
               <div class="<?php echo ($cont++ == 0)?"item active":"item"; ?>">
                 <span class="bg col-md-4">
                   <img class="before-mask" src="<?php bloginfo('template_url'); ?>/img/before-mask.png">
-                  <img class="thumb-featured" src="<?php bloginfo('template_url'); ?>/img/test.png">
+                  <img class="thumb-featured" src="<?php bloginfo('template_url'); ?>/img/test.jpg">
                   <img class="after-mask" src="<?php bloginfo('template_url'); ?>/img/after-mask.png">
                 </span>
                 <div class="box col-md-7">
-                  <div class="text"><span class="glyphicon glyphicon-calendar"></span> <?php the_date('d'); ?> de <?php the_date('F'); ?></div>
+                  <div class="text"><span class="glyphicon glyphicon-calendar"></span> <?php the_date('d F'); ?></div>
                   <h1 class="text"><?php the_title() ?></h1>
                   <p class="text"><?php echo get_the_excerpt() ?></p>
                   <p><a class="btn btn-default btn-lg" href="<?php the_permalink() ?>" role="button">Ler mais</a></p>
