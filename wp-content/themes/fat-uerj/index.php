@@ -10,34 +10,24 @@ get_header(); ?>
     <div class="jumbotron">
         <!-- Carousel -->
         <div id="carousel-featured" class="carousel slide" data-ride="carousel">
+            <?php $informativo = new WP_Query(array('order'=>'DESC', 'orderby'=>'date', 'category_name'=>'informativo')); ?>
             <!-- Wrapper for slides -->
             <div class="carousel-inner row">
-              <div class="item active">
+              <?php $cont=0;while($informativo->have_posts()):$informativo->the_post(); ?>
+              <div class="<?php echo ($cont++ == 0)?"item active":"item"; ?>">
                 <span class="bg col-md-4">
                   <img class="before-mask" src="<?php bloginfo('template_url'); ?>/img/before-mask.png">
-                  <img class="thumb-featured" src="<?php bloginfo('template_url'); ?>/img/test.jpg">
+                  <img class="thumb-featured" src="<?php $img = wp_get_attachment_image_src();echo $img[0]; ?>">
                   <img class="after-mask" src="<?php bloginfo('template_url'); ?>/img/after-mask.png">
                 </span>
                 <div class="box col-md-7">
-                  <div class="text"><span class="glyphicon glyphicon-calendar"></span> 7 de Agosto</div>
-                  <h1 class="text">Hello, world!</h1>
-                  <p class="text">This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three...</p>
-                  <p><a class="btn btn-default btn-lg" role="button">Ler mais</a></p>
+                  <div class="text"><span class="glyphicon glyphicon-calendar"></span> <?php the_date('d de F') ?></div>
+                  <h1 class="text"><?php the_title() ?></h1>
+                  <p class="text"><?php the_excerpt() ?></p>
+                  <p><a class="btn btn-default btn-lg" href="<?php the_permalink() ?>" role="button">Ler mais</a></p>
                 </div>
               </div>
-              <div class="item">
-                <span class="bg col-md-4">
-                  <img class="before-mask" src="<?php bloginfo('template_url'); ?>/img/before-mask.png">
-                  <img class="thumb-featured" src="<?php bloginfo('template_url'); ?>/img/test.jpg">
-                  <img class="after-mask" src="<?php bloginfo('template_url'); ?>/img/after-mask.png">
-                </span>
-                <div class="box col-md-7">
-                  <div class="text"><span class="glyphicon glyphicon-calendar"></span> 7 de Agosto</div>
-                  <h1 class="text">Hello, world!</h1>
-                  <p class="text">This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three...</p>
-                  <p><a class="btn btn-default btn-lg" role="button">Ler mais</a></p>
-                </div>
-              </div>
+              <?php endwhile; ?>
             </div>
             <!-- Controls 
             <a class="left carousel-control" href="#carousel-featured" role="button" data-slide="prev">
