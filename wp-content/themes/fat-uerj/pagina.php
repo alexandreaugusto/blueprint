@@ -13,10 +13,11 @@ get_header(); ?>
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-              <h3 class="text-uppercase"><?php var_dump(get_field("tipo_pagina")); ?></h3>
+              <?php $titulo = get_field("tipo_pagina");$titulo = explode("|", $titulo); ?>
+              <h3 class="text-uppercase"><?php echo $titulo[0]; ?></h3>
             <ul class="breadcrumb">
               <li><a href="#">Home</a></li>
-              <li><a href="#"><?php the_field("tipo_pagina") ?></a></li>
+              <li><a href="#"><?php echo $titulo[0]; ?></a></li>
               <li class="active"><?php the_title() ?></li>
             </ul>
           </div>
