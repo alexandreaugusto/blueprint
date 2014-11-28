@@ -15,7 +15,8 @@ get_header();
                     <div class="col-md-12">
         <?php
             $titulo = get_field("tipo_pagina");
-            $related = new WP_Query(array('meta_value'=>$titulo, 'meta_key' => 'tipo_pagina'));
+            $args = array('post_type' => 'page', 'meta_key' => 'tipo_pagina', 'meta_query' => array(array('key' => 'tipo_pagina', 'value' => $titulo),),);
+            $related = new WP_Query($args);
             $titulo = explode("|", $titulo);
             $title = get_the_title();
         ?>
@@ -37,7 +38,7 @@ get_header();
                         <div class="col-md-12">
                             <h2 class="text-uppercase page-header"><?php the_title() ?></h2>
                             <p><?php echo get_the_post_thumbnail(get_the_ID(), 'featured-blog-thumb', array('class' => 'thumbnail')); ?></p>
-        <?php the_content() ?>
+                            <?php the_content() ?>
                         </div>
                     </div>
                 </div>
