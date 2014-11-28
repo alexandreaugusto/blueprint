@@ -61,7 +61,7 @@ get_header(); ?>
             <h2 class="text-center text-uppercase page-header">Conheça nossos cursos</h2>
             <div class="col-md-4">
                   <h4 class="text-uppercase">Graduação</h4>
-                  <?php $graduacao = new WP_Query(array('post_type' => 'curso', 'category_name' => 'graduacao')); ?>
+                  <?php $graduacao = new WP_Query(array('post_type' => 'curso', 'taxonomy' => 'tipo_curso', 'tax_query' => array('field' => 'slug', 'terms' => 'graduacao'))); ?>
                     <!-- Controls -->
                     <a class="left carousel-control" href="#carousel-graduacao" role="button" data-slide="prev">
                       <span class="glyphicon glyphicon-chevron-left"></span>
@@ -85,7 +85,7 @@ get_header(); ?>
               </div>
             <div class="col-md-4">
                   <h4 class="text-uppercase">Pós-Graduação <small>Lato Sensu (Especialização)</small></h4>
-                  <?php $latoSensu = new WP_Query(array('post_type' => 'curso', 'category_name' => 'lato-sensu')); ?>
+                  <?php $latoSensu = new WP_Query(array('post_type' => 'curso', 'taxonomy' => 'tipo_curso', 'tax_query' => array('field' => 'slug', 'terms' => 'lato-sensu'))); ?>
                     <!-- Controls -->
                     <a class="left carousel-control" href="#carousel-pos" role="button" data-slide="prev">
                       <span class="glyphicon glyphicon-chevron-left"></span>
@@ -109,7 +109,7 @@ get_header(); ?>
               </div>
             <div class="col-md-4">
                   <h4 class="text-uppercase">Pós-Graduação <small>Stricto Sensu (Mestrado)</small></h4>
-                  <?php $strictoSensu = new WP_Query(array('post_type' => 'curso', 'category_name' => 'stricto-sensu')); ?>
+                  <?php $strictoSensu = new WP_Query(array('post_type' => 'curso', 'taxonomy' => 'tipo_curso', 'tax_query' => array('field' => 'slug', 'terms' => 'stricto-sensu'))); ?>
                     <!-- Controls
                     <a class="left carousel-control" href="#carousel-mestrado" role="button" data-slide="prev">
                       <span class="glyphicon glyphicon-chevron-left"></span>
