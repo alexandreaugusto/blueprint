@@ -73,13 +73,13 @@ get_header(); ?>
                   <div id="carousel-graduacao" class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
-                      <?php while($graduacao->have_posts()):$graduacao->the_post(); ?>
-                      <div class="item">
+                      <?php $cont=0;while($graduacao->have_posts()):$graduacao->the_post(); ?>
+                      <div class="<?php echo ($cont++ == 0)?"item active":"item"; ?>">
                         <h4><?php the_title() ?></h4>
                         <p><?php the_excerpt() ?></p>
                         <p><a class="btn btn-primary" href="<?php the_permalink() ?>" role="button">Saiba mais</a></p>
                       </div>
-                      <?php endwhile; ?>
+                      <?php endwhile;$cont=0; ?>
                     </div>
                   </div>
               </div>
@@ -98,12 +98,12 @@ get_header(); ?>
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                       <?php while($latoSensu->have_posts()):$latoSensu->the_post(); ?>
-                      <div class="item">
+                      <div class="<?php echo ($cont++ == 0)?"item active":"item"; ?>">
                         <h4><?php the_title() ?></h4>
                         <p><?php the_excerpt() ?></p>
                         <p><a class="btn btn-primary" href="<?php the_permalink() ?>" role="button">Saiba mais</a></p>
                       </div>
-                      <?php endwhile; ?>
+                      <?php endwhile;$cont = 0; ?>
                     </div>
                   </div>
               </div>
@@ -122,7 +122,7 @@ get_header(); ?>
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                       <?php while($strictoSensu->have_posts()):$strictoSensu->the_post(); ?>
-                      <div class="item">
+                      <div class="<?php echo ($cont++ == 0)?"item active":"item"; ?>">
                         <h4><?php the_title() ?></h4>
                         <p><?php the_excerpt() ?></p>
                         <p><a class="btn btn-primary" href="<?php the_permalink() ?>" role="button">Saiba mais</a></p>
