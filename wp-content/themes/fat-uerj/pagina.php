@@ -13,7 +13,7 @@ get_header(); ?>
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-              <h3 class="text-uppercase"><?php the_field("tipo_pagina") ?></h3>
+              <h3 class="text-uppercase"><?php var_dump(get_field("tipo_pagina")); ?></h3>
             <ul class="breadcrumb">
               <li><a href="#">Home</a></li>
               <li><a href="#"><?php the_field("tipo_pagina") ?></a></li>
