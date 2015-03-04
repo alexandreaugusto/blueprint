@@ -32,6 +32,19 @@ function new_excerpt_more( $more ) {
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
+function fat_uerj_widgets_init() {
+	register_sidebar(array(
+		'name' => 'DTreeSidebar',
+		'id' => 'dtreesidebar',
+		'before_widget' => '<div class="col-md-8 corpo-docente">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="text-uppercase">',
+		'after_title' => '</h4>',
+		));
+}
+
+add_action('widgets_init', 'fat_uerj_widgets_init');
+
 include_once('fields.php');
 
 ?>

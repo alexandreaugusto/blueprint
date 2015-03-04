@@ -55,8 +55,8 @@ get_header(); ?>
               <p><?php echo $coordenador['user_description']; ?></p>
               <a href="<?php echo get_the_author_meta('usr_lattes', $coordenador['ID']); ?>">Currículo Lattes</a>
             </div>
-            <?php $corpo_docente = get_field('cso_corpodocente'); ?>
-            <div class="col-md-8 corpo-docente">
+            <?php //$corpo_docente = get_field('cso_corpodocente'); ?>
+            <!--<div class="col-md-8 corpo-docente">
               <h4 class="text-uppercase">Corpo docente</h4>
               <table class="table table-striped">
                 <tbody>
@@ -68,7 +68,12 @@ get_header(); ?>
                   <?php endforeach; ?>
                 </tbody>
               </table>
-            </div>
+            </div>-->
+            <?php
+                if(is_active_sidebar('dtreesidebar')) {
+                    dynamic_sidebar('dtreesidebar');
+                }
+            ?>
             <div class="col-md-12">
               <h4 class="text-uppercase">Material didático para download</h4>
               <table class="table table-striped">
