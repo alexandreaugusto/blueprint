@@ -95,10 +95,15 @@ function create_post_type_disciplina() {
         'public' => true,
         'has_archive' => true,
         'hierarchical' => true,
-        'supports' => array('page-attributes'),
         'taxonomies' => array('post_tag')
             )
     );
+}
+
+add_action('init', 'custom_init_disciplina');
+
+function custom_init_disciplina() {
+    add_post_type_support('disciplina', 'page-attributes');
 }
 
 //removing revisions (autosave)
