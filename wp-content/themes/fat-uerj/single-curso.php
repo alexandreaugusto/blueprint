@@ -69,7 +69,7 @@ get_header(); ?>
                     $idCurso = get_the_ID();
                     
                     foreach ($categorias as $categoria) {
-                        echo "d.add(" . $cont . ", 0, '" . $categoria->cat_name . "', '#')\r\n";
+                        echo "disc.add(" . $cont . ", 0, '" . $categoria->cat_name . "', '#')\r\n";
                         $query = new WP_Query(array(
                             'tipo-disciplina' => $categoria->cat_name,
                             'post_type' => 'disciplina',
@@ -82,7 +82,7 @@ get_header(); ?>
                             $query->the_post();
                             $curso = get_field('curso_disciplina');
                             if($curso->ID() == $idCurso) {
-                                echo "d.add(" . $i++ . ", " . $cont++ . ", '" . get_the_title() . "', '#')\r\n";
+                                echo "disc.add(" . $i++ . ", " . $cont++ . ", '" . get_the_title() . "', '#')\r\n";
                             }
                         endwhile;
                         wp_reset_postdata();
