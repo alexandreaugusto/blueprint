@@ -60,7 +60,7 @@ get_header(); ?>
               <h4 class="text-uppercase">Disciplinas</h4>
               <script type="text/javascript">
                   /* <![CDATA[ */
-                  disc = new dTree('disciplinas');
+                  disc = new dTree('disc');
                   d.add(0,-1,'');
                   
                   <?php 
