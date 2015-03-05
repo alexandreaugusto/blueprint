@@ -44,7 +44,7 @@ add_action('admin_init', 'disable_revisions_curso');
 add_post_type_support('curso', array('thumbnail', 'tags'));
 
 function create_taxonomy_curso_category() {
-    register_taxonomy('tipo_curso', 'curso', array(
+    register_taxonomy('tipo-curso', 'curso', array(
         'hierarchical' => true,
         'label' => __('Categorias dos cursos'),
         'show_ui' => true,
@@ -62,7 +62,7 @@ add_action('restrict_manage_posts', 'restrict_manage_posts_curso');
 
 function restrict_manage_posts_curso() {
     global $typenow;
-    $taxonomy = 'tipo_curso';
+    $taxonomy = 'tipo-curso';
     if ($typenow == 'curso') {
         $filters = array($taxonomy);
         foreach ($filters as $tax_slug) {
@@ -123,7 +123,7 @@ add_action('admin_init', 'disable_revisions_disciplina');
 add_post_type_support('disciplina', array('thumbnail', 'tags'));
 
 function create_taxonomy_disciplina_category() {
-    register_taxonomy('tipo_disciplina', 'disciplina', array(
+    register_taxonomy('tipo-disciplina', 'disciplina', array(
         'hierarchical' => true,
         'label' => __('Categorias das disciplinas'),
         'show_ui' => true,
@@ -141,7 +141,7 @@ add_action('restrict_manage_posts', 'restrict_manage_posts_disciplina');
 
 function restrict_manage_posts_disciplina() {
     global $typenow;
-    $taxonomy = 'tipo_disciplina';
+    $taxonomy = 'tipo-disciplina';
     if ($typenow == 'disciplina') {
         $filters = array($taxonomy);
         foreach ($filters as $tax_slug) {

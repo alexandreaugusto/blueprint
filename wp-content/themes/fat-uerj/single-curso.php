@@ -56,9 +56,14 @@ get_header(); ?>
               <a href="<?php echo get_the_author_meta('usr_lattes', $coordenador['ID']); ?>">Currículo Lattes</a>
             </div>
             <?php //$corpo_docente = get_field('cso_corpodocente'); ?>
-            <!--<div class="col-md-8 corpo-docente">
-              <h4 class="text-uppercase">Corpo docente</h4>
-              <table class="table table-striped">
+            <div class="col-md-8 corpo-docente">
+              <h4 class="text-uppercase">Disciplinas</h4>
+              <?php
+                if(function_exists('wpdt_list_taxonomies')) {
+                    wpdt_list_taxonomies('name=tipo-disciplina');
+                }
+              ?>
+              <!--<table class="table table-striped">
                 <tbody>
                   <?php foreach($corpo_docente as $professor): ?>
                   <tr>
@@ -67,12 +72,12 @@ get_header(); ?>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
-              </table>
-            </div>-->
+              </table>-->
+            </div>
             <?php
-                if(is_active_sidebar('dtreesidebar')) {
+                /*if(is_active_sidebar('dtreesidebar')) {
                     dynamic_sidebar('dtreesidebar');
-                }
+                }*/
             ?>
             <div class="col-md-12">
               <h4 class="text-uppercase">Material didático para download</h4>
