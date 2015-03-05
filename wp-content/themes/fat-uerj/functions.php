@@ -8,7 +8,7 @@
 require_once('wp-bootstrap-navwalker-master/wp_bootstrap_navwalker.php');
 
 function fat_uerj_name_scripts() {
-    wp_enqueue_style('dtree', get_stylesheet_directory() . '/css/dtree.css');
+    wp_enqueue_style('dtree', get_template_directory_uri() . '/css/dtree.css');
     wp_enqueue_script('dtree', get_template_directory_uri() . '/js/dtree.js', array(), '1.0.0', false);
 }
 
