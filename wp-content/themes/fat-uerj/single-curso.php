@@ -61,7 +61,7 @@ get_header(); ?>
               <script type="text/javascript">
                   /* <![CDATA[ */
                   disc = new dTree('disc');
-                  d.add(0,-1,'');
+                  disc.add(0,-1,'');
                   
                   <?php 
                     $categorias = get_categories(array('type' => 'disciplina', 'order' => 'ASC', 'taxonomy' => 'tipo-disciplina', 'hide_empty' => 0));
