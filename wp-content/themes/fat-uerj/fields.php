@@ -21,10 +21,17 @@ function create_post_type_curso() {
         ),
         'description' => 'Cursos da FAT/UERJ',
         'public' => true,
+        'hierarchical' => true,
         'has_archive' => true,
         'taxonomies' => array('post_tag')
             )
     );
+}
+
+add_action('init', 'custom_init_curso');
+
+function custom_init_curso() {
+    add_post_type_support('curso', 'page-attributes');
 }
 
 //removing revisions (autosave)
