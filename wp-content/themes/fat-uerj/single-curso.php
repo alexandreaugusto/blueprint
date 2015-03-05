@@ -58,11 +58,40 @@ get_header(); ?>
             <?php //$corpo_docente = get_field('cso_corpodocente'); ?>
             <div class="col-md-8 corpo-docente">
               <h4 class="text-uppercase">Disciplinas</h4>
-              <?php
-                if(function_exists('wpdt_list_taxonomies')) {
-                    wpdt_list_taxonomies('name=tipo-disciplina');
-                }
-              ?>
+              <script type="text/javascript">
+                  /* <![CDATA[ */
+                  disc = new dTree('disciplinas');
+                  d.add(0,-1,'');
+                  
+                  <?php 
+                    $categorias = get_categories(array('type' => 'disciplina', 'order' => 'ASC', 'taxonomy' => 'tipo-disciplina', 'hide_empty' => 1));
+                    $cont = 1;
+                    $idCurso = get_the_ID();
+                    
+                    foreach ($categorias as $categoria) {
+                        echo "d.add(" . $cont . ", 0, '" . $categoria->cat_name . "', '#')\r\n";
+                        $query = new WP_Query(array(
+                            'tipo-disciplina' => $categoria->cat_name,
+                            'post_type' => 'disciplina',
+                            'orderby' => 'title',
+                            'order' => 'ASC',
+                            'posts_per_page' => -1
+                        ));
+                        $i = 1;
+                        while ($query->have_posts()) :
+                            $query->the_post();
+                            $curso = get_field('curso_disciplina');
+                            if($curso[0]->ID() == $idCurso) {
+                                echo "d.add(" . $i++ . ", " . $cont++ . ", '" . get_the_title() . "', '#')\r\n";
+                            }
+                        endwhile;
+                        wp_reset_postdata();
+                        $cont++;
+                    }
+                  ?>
+                  document.write(disc);
+                  /* ]]> */
+              </script>
               <!--<table class="table table-striped">
                 <tbody>
                   <?php //foreach($corpo_docente as $professor): ?>
@@ -74,11 +103,6 @@ get_header(); ?>
                 </tbody>
               </table>-->
             </div>
-            <?php
-                if(is_active_sidebar('dtreesidebar')) {
-                    dynamic_sidebar('dtreesidebar');
-                }
-            ?>
             <div class="col-md-12">
               <h4 class="text-uppercase">Material didático para download</h4>
               <table class="table table-striped">

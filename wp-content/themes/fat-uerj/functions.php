@@ -7,6 +7,13 @@
 
 require_once('wp-bootstrap-navwalker-master/wp_bootstrap_navwalker.php');
 
+function fat_uerj_name_scripts() {
+    wp_enqueue_style('dtree', get_stylesheet_directory() . '/css/dtree.css');
+    wp_enqueue_script('dtree', get_template_directory_uri() . '/js/dtree.js', array(), '1.0.0', true);
+}
+
+add_action('wp_enqueue_scripts', 'fat_uerj_name_scripts');
+
 add_theme_support('menus');
 
 add_filter('show_admin_bar', '__return_false');
