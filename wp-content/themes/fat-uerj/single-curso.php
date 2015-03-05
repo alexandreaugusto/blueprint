@@ -64,7 +64,7 @@ get_header(); ?>
                   d.add(0,-1,'');
                   
                   <?php 
-                    $categorias = get_categories(array('type' => 'disciplina', 'order' => 'ASC', 'taxonomy' => 'tipo-disciplina', 'hide_empty' => 1));
+                    $categorias = get_categories(array('type' => 'disciplina', 'order' => 'ASC', 'taxonomy' => 'tipo-disciplina', 'hide_empty' => 0));
                     $cont = 1;
                     $idCurso = get_the_ID();
                     
@@ -81,7 +81,7 @@ get_header(); ?>
                         while ($query->have_posts()) :
                             $query->the_post();
                             $curso = get_field('curso_disciplina');
-                            if($curso[0]->ID() == $idCurso) {
+                            if($curso->ID() == $idCurso) {
                                 echo "d.add(" . $i++ . ", " . $cont++ . ", '" . get_the_title() . "', '#')\r\n";
                             }
                         endwhile;
