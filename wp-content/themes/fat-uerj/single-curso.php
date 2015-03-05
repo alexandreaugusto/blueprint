@@ -65,19 +65,19 @@ get_header(); ?>
               ?>
               <!--<table class="table table-striped">
                 <tbody>
-                  <?php foreach($corpo_docente as $professor): ?>
+                  <?php //foreach($corpo_docente as $professor): ?>
                   <tr>
-                    <td><?php echo $professor['user_firstname'] . " " . $professor['user_lastname']; ?></td>
-                    <td><a href="<?php echo get_the_author_meta('usr_lattes', $professor['ID']); ?>">Currículo Lattes</a></td>
+                    <td><?php //echo $professor['user_firstname'] . " " . $professor['user_lastname']; ?></td>
+                    <td><a href="<?php //echo get_the_author_meta('usr_lattes', $professor['ID']); ?>">Currículo Lattes</a></td>
                   </tr>
-                  <?php endforeach; ?>
+                  <?php //endforeach; ?>
                 </tbody>
               </table>-->
             </div>
             <?php
-                /*if(is_active_sidebar('dtreesidebar')) {
+                if(is_active_sidebar('dtreesidebar')) {
                     dynamic_sidebar('dtreesidebar');
-                }*/
+                }
             ?>
             <div class="col-md-12">
               <h4 class="text-uppercase">Material didático para download</h4>
