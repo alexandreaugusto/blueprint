@@ -83,9 +83,8 @@ get_header(); ?>
                         while ($query->have_posts()) :
                             $query->the_post();
                             $curso = get_field('curso_disciplina');
-                            $opa = print_r($curso, true);
                             if($curso->ID == $idCurso) {
-                                echo "\t\t\t\tdisc.add(" . $i++ . ", " . $cont++ . ", '" . get_the_title() . "', '#');\r\n";
+                                echo "\t\t\t\tdisc.add(" . $i++ . ", " . $cont . ", '" . get_the_title() . "', '#');\r\n";
                             }
                         endwhile;
                         wp_reset_postdata();
@@ -95,7 +94,6 @@ get_header(); ?>
                   document.write(disc);
                   /* ]]> */
               </script>
-              <?php echo $opa; ?>
               <!--<table class="table table-striped">
                 <tbody>
                   <?php //foreach($corpo_docente as $professor): ?>
