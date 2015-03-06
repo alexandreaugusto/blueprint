@@ -72,7 +72,7 @@ get_header(); ?>
                     foreach ($categorias as $categoria) {
                         echo "\t\t\t\tdisc.add(" . $cont . ", 0, '" . $categoria->cat_name . "', '#');\r\n";
                         $query = new WP_Query(array(
-                            'tipo-disciplina' => $categoria->cat_name,
+                            'tipo-disciplina' => $categoria->cat_slug,
                             'post_type' => 'disciplina',
                             'orderby' => 'title',
                             'order' => 'ASC',
