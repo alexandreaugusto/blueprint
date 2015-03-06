@@ -100,7 +100,7 @@ get_header(); ?>
                         endif;
                         wp_reset_postdata();
                         $cont++;
-                    endfor;
+                    endforeach;
                   ?>
               <!--<table class="table table-striped">
                 <tbody>
