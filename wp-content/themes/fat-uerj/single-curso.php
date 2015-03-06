@@ -70,7 +70,7 @@ get_header(); ?>
                     $opa = "";
                     
                     foreach ($categorias as $categoria) {
-                        echo "\t\t\t\tdisc.add(" . $cont . ", 0, '" . $categoria->cat_name . "', '#')\r\n";
+                        echo "\t\t\t\tdisc.add(" . $cont . ", 0, '" . $categoria->cat_name . "', '#');\r\n";
                         $query = new WP_Query(array(
                             'tipo-disciplina' => $categoria->cat_name,
                             'post_type' => 'disciplina',
@@ -78,14 +78,14 @@ get_header(); ?>
                             'order' => 'ASC',
                             'posts_per_page' => -1
                         ));
-                        echo "//" . $query->found_posts;
+                        echo "\r\n//" . $query->found_posts;
                         $i = 1;
                         while ($query->have_posts()) :
                             $query->the_post();
                             $curso = get_field('curso_disciplina');
                             $opa = print_r($curso, true);
                             if($curso->ID() == $idCurso) {
-                                echo "\t\t\t\tdisc.add(" . $i++ . ", " . $cont++ . ", '" . get_the_title() . "', '#')\r\n";
+                                echo "\t\t\t\tdisc.add(" . $i++ . ", " . $cont++ . ", '" . get_the_title() . "', '#');\r\n";
                             }
                         endwhile;
                         wp_reset_postdata();
