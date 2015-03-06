@@ -78,7 +78,7 @@ get_header(); ?>
                             'order' => 'ASC',
                             'posts_per_page' => -1
                         ));
-                        echo "\r\n//" . $query->found_posts;
+                        echo "\r\n//" . $query->found_posts . "\r\n";
                         $i = 1;
                         while ($query->have_posts()) :
                             $query->the_post();
