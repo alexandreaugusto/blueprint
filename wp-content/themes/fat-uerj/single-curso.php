@@ -91,7 +91,7 @@ get_header(); ?>
                         $cont++;
                     }
                   ?>
-                  document.write(disc);
+                  //document.write(disc);
                   /* ]]> */
               </script>
               <!--<table class="table table-striped">
@@ -104,6 +104,11 @@ get_header(); ?>
                   <?php //endforeach; ?>
                 </tbody>
               </table>-->
+              <?php
+                if(is_active_sidebar('dtreesidebar')) {
+                    dynamic_sidebar('dtreesidebar');
+                }
+              ?>
             </div>
             <div class="col-md-12">
               <h4 class="text-uppercase">Material didático para download</h4>
