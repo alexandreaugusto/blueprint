@@ -94,6 +94,7 @@ get_header(); ?>
                   document.write(disc);
                   /* ]]> */
               </script>
+              <?php echo $opa; ?>
               <!--<table class="table table-striped">
                 <tbody>
                   <?php //foreach($corpo_docente as $professor): ?>
