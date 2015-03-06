@@ -58,20 +58,21 @@ get_header(); ?>
             <?php //$corpo_docente = get_field('cso_corpodocente'); ?>
             <div class="col-md-8 corpo-docente">
               <h4 class="text-uppercase">Disciplinas</h4>
+              <div class="dtree">
               <script type="text/javascript">
                   /* <![CDATA[ */
-                  //try{
+                  try{
                     //if(document.getElementById && document.getElementById('oclinks_tax1')){document.getElementById('oclinks_tax1').style.display = 'block';}
-                    /*var disc = new wpdTree('disc', 'http://uerj.sparkcup.com/','0');
+                    var disc = new wpdTree('disc', 'http://uerj.sparkcup.com/','0');
                     disc.config.useLines=1;
                     disc.config.useIcons=0;
                     disc.config.closeSameLevel=1;
                     disc.config.folderLinks=0;
                     disc.config.useSelection=0;
-                    disc.a(0,'root','','','','','');*/
+                    disc.a(0,'root','','','','','');
                   
                   <?php 
-                    /*$categorias = get_categories(array('type' => 'disciplina', 'order' => 'ASC', 'taxonomy' => 'tipo-disciplina', 'hide_empty' => 0));
+                    $categorias = get_categories(array('type' => 'disciplina', 'order' => 'ASC', 'taxonomy' => 'tipo-disciplina', 'hide_empty' => 0));
                     $cont = 1;
                     $idCurso = get_the_ID();
                     $opa = "";
@@ -96,12 +97,12 @@ get_header(); ?>
                         endwhile;
                         wp_reset_postdata();
                         $cont++;
-                    }*/
+                    }
                   ?>
-                  /*document.write(disc);
-                  }catch(e){}*/
+                  document.write(disc);
+                  }catch(e){}
                   /* ]]> */
-              </script>
+              </script></div>
               <!--<table class="table table-striped">
                 <tbody>
                   <?php //foreach($corpo_docente as $professor): ?>
@@ -113,9 +114,9 @@ get_header(); ?>
                 </tbody>
               </table>-->
               <?php
- if(is_active_sidebar('dtreesidebar')) {
+ /*if(is_active_sidebar('dtreesidebar')) {
 dynamic_sidebar('dtreesidebar');
- }
+ }*/
  ?>
             </div>
             <div class="col-md-12">
