@@ -60,8 +60,15 @@ get_header(); ?>
               <h4 class="text-uppercase">Disciplinas</h4>
               <script type="text/javascript">
                   /* <![CDATA[ */
-                  disc = new dTree('disc');
-                  disc.add(0,-1,'');
+                  try{
+                    //if(document.getElementById && document.getElementById('oclinks_tax1')){document.getElementById('oclinks_tax1').style.display = 'block';}
+                    var disc = new wpdTree('disc', 'http://uerj.sparkcup.com/','0');
+                    disc.config.useLines=1;
+                    disc.config.useIcons=0;
+                    disc.config.closeSameLevel=1;
+                    disc.config.folderLinks=0;
+                    disc.config.useSelection=0;
+                    disc.a(0,'root','','','','','');
                   
                   <?php 
                     $categorias = get_categories(array('type' => 'disciplina', 'order' => 'ASC', 'taxonomy' => 'tipo-disciplina', 'hide_empty' => 0));
@@ -70,7 +77,7 @@ get_header(); ?>
                     $opa = "";
                     
                     foreach ($categorias as $categoria) {
-                        echo "\t\t\t\tdisc.add(" . $cont . ", 0, '" . $categoria->cat_name . "', '#');\r\n";
+                        echo "\t\t\t\tdisc.a(" . $cont . ", 0, '" . $categoria->cat_name . "', '', '#', '', '');\r\n";
                         $query = new WP_Query(array(
                             'tipo-disciplina' => $categoria->slug,
                             'post_type' => 'disciplina',
@@ -84,14 +91,15 @@ get_header(); ?>
                             $query->the_post();
                             $curso = get_field('curso_disciplina');
                             if($curso->ID == $idCurso) {
-                                echo "\t\t\t\tdisc.add(" . $i++ . ", " . $cont . ", '" . get_the_title() . "', '#');\r\n";
+                                echo "\t\t\t\tdisc.a(" . $i++ . ", " . $cont . ", '" . get_the_title() . "', '', '#', '', '');\r\n";
                             }
                         endwhile;
                         wp_reset_postdata();
                         $cont++;
                     }
                   ?>
-                  //document.write(disc);
+                  document.write(disc);
+                  }catch(e){}
                   /* ]]> */
               </script>
               <!--<table class="table table-striped">
@@ -104,11 +112,6 @@ get_header(); ?>
                   <?php //endforeach; ?>
                 </tbody>
               </table>-->
-              <?php
-                if(is_active_sidebar('dtreesidebar')) {
-                    dynamic_sidebar('dtreesidebar');
-                }
-              ?>
             </div>
             <div class="col-md-12">
               <h4 class="text-uppercase">Material didático para download</h4>

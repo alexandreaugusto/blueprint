@@ -12,7 +12,7 @@ function fat_uerj_name_scripts() {
     wp_enqueue_script('dtree', get_template_directory_uri() . '/js/dtree.js', array(), '1.0.0', false);
 }
 
-add_action('wp_enqueue_scripts', 'fat_uerj_name_scripts');
+//add_action('wp_enqueue_scripts', 'fat_uerj_name_scripts');
 
 add_theme_support('menus');
 
