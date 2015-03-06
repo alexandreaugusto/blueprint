@@ -67,6 +67,7 @@ get_header(); ?>
                     $categorias = get_categories(array('type' => 'disciplina', 'order' => 'ASC', 'taxonomy' => 'tipo-disciplina', 'hide_empty' => 0));
                     $cont = 1;
                     $idCurso = get_the_ID();
+                    $opa = "";
                     
                     foreach ($categorias as $categoria) {
                         echo "disc.add(" . $cont . ", 0, '" . $categoria->cat_name . "', '#')\r\n";
@@ -81,6 +82,7 @@ get_header(); ?>
                         while ($query->have_posts()) :
                             $query->the_post();
                             $curso = get_field('curso_disciplina');
+                            $opa = print_r($curso, true);
                             if($curso->ID() == $idCurso) {
                                 echo "disc.add(" . $i++ . ", " . $cont++ . ", '" . get_the_title() . "', '#')\r\n";
                             }
