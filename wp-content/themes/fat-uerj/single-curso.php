@@ -84,7 +84,7 @@ get_header(); ?>
                             $query->the_post();
                             $curso = get_field('curso_disciplina');
                             $opa = print_r($curso, true);
-                            if($curso->ID() == $idCurso) {
+                            if($curso->ID == $idCurso) {
                                 echo "\t\t\t\tdisc.add(" . $i++ . ", " . $cont++ . ", '" . get_the_title() . "', '#');\r\n";
                             }
                         endwhile;
