@@ -58,27 +58,17 @@ get_header(); ?>
             <?php //$corpo_docente = get_field('cso_corpodocente'); ?>
             <div class="col-md-8 corpo-docente">
               <h4 class="text-uppercase">Disciplinas</h4>
-              <div class="dtree">
-              <script type="text/javascript">
-                  /* <![CDATA[ */
-                  try{
-                    //if(document.getElementById && document.getElementById('oclinks_tax1')){document.getElementById('oclinks_tax1').style.display = 'block';}
-                    var disc = new wpdTree('disc', 'http://uerj.sparkcup.com/','0');
-                    disc.config.useLines=1;
-                    disc.config.useIcons=0;
-                    disc.config.closeSameLevel=1;
-                    disc.config.folderLinks=0;
-                    disc.config.useSelection=0;
-                    disc.a(0,'root','','','','','');
-                  
+                <ul>
                   <?php 
                     $categorias = get_categories(array('type' => 'disciplina', 'order' => 'ASC', 'taxonomy' => 'tipo-disciplina', 'hide_empty' => 0));
                     $cont = 1;
                     $idCurso = get_the_ID();
                     $opa = "";
                     
-                    foreach ($categorias as $categoria) {
-                        echo "\t\t\t\tdisc.a(" . $cont . ", 0, '" . $categoria->cat_name . "', '', '#', '', '');\r\n";
+                    foreach ($categorias as $categoria) :
+                  ?>
+                    <li><?php echo $categoria->cat_name; ?></li>
+                  <?php
                         $query = new WP_Query(array(
                             'tipo-disciplina' => $categoria->slug,
                             'post_type' => 'disciplina',
@@ -86,23 +76,32 @@ get_header(); ?>
                             'order' => 'ASC',
                             'posts_per_page' => -1
                         ));
-                        echo "\r\n//" . $query->found_posts . "\r\n";
+                        if($query->found_posts > 0):
+                  ?>
+                    <li>
+                        <ul>
+                  <?php          
+                        endif;
                         $i = 1;
                         while ($query->have_posts()) :
                             $query->the_post();
                             $curso = get_field('curso_disciplina');
-                            if($curso->ID == $idCurso) {
-                                echo "\t\t\t\tdisc.a(" . $i++ . ", " . $cont . ", '" . get_the_title() . "', '', '#', '', '');\r\n";
-                            }
+                            if($curso->ID == $idCurso) :
+                  ?>
+                            <li><?php echo get_the_title(); ?></li>
+                  <?php
+                            endif;
                         endwhile;
+                        if($query->found_posts > 0):
+                  ?>
+                        </ul>
+                    </li>
+                  <?php
+                        endif;
                         wp_reset_postdata();
                         $cont++;
-                    }
+                    endfor;
                   ?>
-                  document.write(disc);
-                  }catch(e){}
-                  /* ]]> */
-              </script></div>
               <!--<table class="table table-striped">
                 <tbody>
                   <?php //foreach($corpo_docente as $professor): ?>
