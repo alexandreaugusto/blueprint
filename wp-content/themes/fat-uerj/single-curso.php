@@ -88,7 +88,25 @@ get_header(); ?>
                             $curso = get_field('curso_disciplina');
                             if($curso->ID == $idCurso) :
                   ?>
-                            <li><?php echo get_the_title(); ?></li>
+                            <li>
+                                <?php
+                                    echo get_the_title();
+                                    $attachments = get_posts(array('post_type' => 'attachment', 'posts_per_page' => -1, 'post_status' => 'any', 'post_parent' => null, 'meta_key' => 'arquivo_disciplina', 'meta_value' => get_the_ID()));
+                                    if ($attachments):
+                                ?>
+                                <ul>
+                                <?php
+                                        foreach ( $attachments as $attachment ):
+                                ?>
+                                    <li><a href="<?php echo get_attachment_link($attachment->ID); ?>"><?php echo $attachment->post_title; ?></a></li>
+                                <?php
+                                        endforeach;
+                                ?>
+                                </ul>
+                                <?php
+                                    endif;
+                                ?>
+                            </li>
                   <?php
                             endif;
                         endwhile;
@@ -102,21 +120,6 @@ get_header(); ?>
                         $cont++;
                     endforeach;
                   ?>
-              <!--<table class="table table-striped">
-                <tbody>
-                  <?php //foreach($corpo_docente as $professor): ?>
-                  <tr>
-                    <td><?php //echo $professor['user_firstname'] . " " . $professor['user_lastname']; ?></td>
-                    <td><a href="<?php //echo get_the_author_meta('usr_lattes', $professor['ID']); ?>">Currículo Lattes</a></td>
-                  </tr>
-                  <?php //endforeach; ?>
-                </tbody>
-              </table>-->
-              <?php
- /*if(is_active_sidebar('dtreesidebar')) {
-dynamic_sidebar('dtreesidebar');
- }*/
- ?>
             </div>
             <div class="col-md-12">
               <h4 class="text-uppercase">Material didático para download</h4>
