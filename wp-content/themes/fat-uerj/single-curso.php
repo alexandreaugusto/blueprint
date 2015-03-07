@@ -68,7 +68,8 @@ get_header(); ?>
                     
                     foreach ($categorias as $categoria) :
                   ?>
-                    <li><?php echo $categoria->cat_name; ?></li>
+                    <li>
+                        <?php echo $categoria->cat_name; ?>
                   <?php
                         $query = new WP_Query(array(
                             'tipo-disciplina' => $categoria->slug,
@@ -81,7 +82,6 @@ get_header(); ?>
                         ));
                         if($query->found_posts > 0):
                   ?>
-                    <li>
                         <ul>
                   <?php          
                         $i = 1;
@@ -114,13 +114,13 @@ get_header(); ?>
                         endwhile;
                   ?>
                         </ul>
-                    </li>
                   <?php
                         endif;
                         wp_reset_postdata();
                         $cont++;
                     endforeach;
                   ?>
+                  </li>
                 </ul>
               </div>
             </div>
