@@ -74,24 +74,29 @@ get_header(); ?>
                             'post_type' => 'disciplina',
                             'orderby' => 'title',
                             'order' => 'ASC',
-                            'posts_per_page' => -1
+                            'posts_per_page' => -1,
+                            'meta_key' => 'curso_disciplina',
+                            'meta_value' => $idCurso
                         ));
                         if($query->found_posts > 0):
                   ?>
                     <li>
                         <ul>
                   <?php          
-                        endif;
+                        //endif;
                         $i = 1;
                         while ($query->have_posts()) :
                             $query->the_post();
-                            $curso = get_field('curso_disciplina');
-                            if($curso->ID == $idCurso) :
+                            /*$curso = get_field('curso_disciplina');
+                            if($curso->ID == $idCurso) :*/
                   ?>
                             <li>
                                 <?php
                                     echo get_the_title();
-                                    $attachments = get_posts(array('post_type' => 'attachment', 'posts_per_page' => -1, 'post_status' => 'any', 'post_parent' => null, 'meta_key' => 'arquivo_disciplina', 'meta_value' => get_the_ID()));
+                                    $attachments = get_posts(
+                                            array('post_type' => 'attachment', 'posts_per_page' => -1,
+                                                'post_status' => 'any', 'post_parent' => null,
+                                                'meta_key' => 'arquivo_disciplina', 'meta_value' => get_the_ID()));
                                     if ($attachments):
                                 ?>
                                 <ul>
@@ -108,9 +113,9 @@ get_header(); ?>
                                 ?>
                             </li>
                   <?php
-                            endif;
+                            //endif;
                         endwhile;
-                        if($query->found_posts > 0):
+                        //if($query->found_posts > 0):
                   ?>
                         </ul>
                     </li>
