@@ -163,6 +163,6 @@ get_header(); ?>
     </div>
     <?php endwhile; ?>
     <script type="text/javascript">
-        $('#disciplinas').jstree();
+        jQuery('#disciplinas').jstree();
     </script>
 <?php get_footer(); ?>
