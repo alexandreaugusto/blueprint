@@ -55,12 +55,13 @@ get_header(); ?>
               <p><?php echo $coordenador['user_description']; ?></p>
               <a href="<?php echo get_the_author_meta('usr_lattes', $coordenador['ID']); ?>">Currículo Lattes</a>
             </div>
-            <?php //$corpo_docente = get_field('cso_corpodocente'); ?>
             <div class="col-md-8 corpo-docente">
               <h4 class="text-uppercase">Disciplinas</h4>
+              <div id="disciplinas">
                 <ul>
                   <?php 
-                    $categorias = get_categories(array('type' => 'disciplina', 'order' => 'ASC', 'taxonomy' => 'tipo-disciplina', 'hide_empty' => 0));
+                    $categorias = get_categories(array('type' => 'disciplina', 'order' => 'ASC',
+                        'taxonomy' => 'tipo-disciplina', 'hide_empty' => 0));
                     $cont = 1;
                     $idCurso = get_the_ID();
                     $opa = "";
@@ -83,13 +84,10 @@ get_header(); ?>
                     <li>
                         <ul>
                   <?php          
-                        //endif;
                         $i = 1;
                         while ($query->have_posts()) :
                             $query->the_post();
-                            /*$curso = get_field('curso_disciplina');
-                            if($curso->ID == $idCurso) :*/
-                  ?>
+                  ?>    
                             <li>
                                 <?php
                                     echo get_the_title();
@@ -113,9 +111,7 @@ get_header(); ?>
                                 ?>
                             </li>
                   <?php
-                            //endif;
                         endwhile;
-                        //if($query->found_posts > 0):
                   ?>
                         </ul>
                     </li>
@@ -125,6 +121,8 @@ get_header(); ?>
                         $cont++;
                     endforeach;
                   ?>
+                </ul>
+              </div>
             </div>
             <div class="col-md-12">
               <h4 class="text-uppercase">Material didático para download</h4>
@@ -164,5 +162,7 @@ get_header(); ?>
       </div>
     </div>
     <?php endwhile; ?>
-
+    <script type="text/javascript">
+        $('#disciplinas').jstree();
+    </script>
 <?php get_footer(); ?>
