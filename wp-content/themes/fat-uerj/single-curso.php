@@ -98,7 +98,7 @@ get_header(); ?>
                                 <?php
                                         foreach ( $attachments as $attachment ):
                                 ?>
-                                    <li><a href="<?php echo get_attachment_link($attachment->ID); ?>"><?php echo $attachment->post_title; ?></a></li>
+                                    <li><a href="<?php echo get_attachment_url($attachment->ID); ?>"><?php echo $attachment->post_title; ?></a></li>
                                 <?php
                                         endforeach;
                                 ?>
