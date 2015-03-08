@@ -167,9 +167,10 @@ get_header(); ?>
     <?php endwhile; ?>
     <script type="text/javascript">
         jQuery('#disciplinas').jstree()
-                .bind("select_node.jstree", function (e, data) {
-                var href = data.rslt.obj.children("a").attr("href");
-                document.location.href = href;
+                .bind("click.jstree", function (e, data) {
+                //var href = data.rslt.obj.children("a").attr("href");
+                //document.location.href = href;
+                console.log(e.target);
         });
     </script>
 <?php get_footer(); ?>
