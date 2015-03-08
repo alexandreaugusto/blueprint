@@ -172,6 +172,7 @@ get_header(); ?>
                 //document.location.href = href;
                 e.preventDefault();
                 console.log("yyy: " + e.currentTarget);
+                window.location.href = data.node.a_attr.href;
         });
     </script>
 <?php get_footer(); ?>
