@@ -41,7 +41,7 @@ get_header(); ?>
           <div class="row">
             <div class="col-md-12">
                 <h2 class="text-uppercase page-header">O curso</h2>
-              <?php the_content(); ?>
+              <?php the_content(); ?>   
             </div>
             <div class="col-md-12">
               <h2 class="text-uppercase page-header">O profissional</h2>
@@ -60,13 +60,16 @@ get_header(); ?>
               <div id="disciplinas">
                 <ul>
                   <?php 
-                    $categorias = get_categories(array('type' => 'disciplina', 'order' => 'ASC',
+                    $categorias = get_categories(array('type' => 'disciplina', 'orderby' => 'id', 'order' => 'ASC',
                         'taxonomy' => 'tipo-disciplina', 'hide_empty' => 0));
                     $cont = 1;
                     $idCurso = get_the_ID();
-                    $opa = "";
+                    $catCont = 0;
+                    $duracao = get_field('cso_duracao');
                     
                     foreach ($categorias as $categoria) :
+                        if($catCont++ >= $duracao)
+                            break;
                   ?>
                     <li>
                         <?php echo $categoria->cat_name; ?>
