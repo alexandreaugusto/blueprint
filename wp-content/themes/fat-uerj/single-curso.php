@@ -171,8 +171,7 @@ get_header(); ?>
                 //var href = data.rslt.obj.children("a").attr("href");
                 //document.location.href = href;
                 e.preventDefault();
-                o = this.get_node(e.currentTarget);
-                console.log("yyy: " + o);
+                console.log("yyy: " + e.currentTarget);
         });
     </script>
 <?php get_footer(); ?>
