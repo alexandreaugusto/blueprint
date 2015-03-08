@@ -170,7 +170,8 @@ get_header(); ?>
                 .bind("select_node.jstree", function (e, data) {
                 //var href = data.rslt.obj.children("a").attr("href");
                 //document.location.href = href;
-                console.log(e.target);
+                console.log("yyy: " + e.target);
+                console.log("xxx: " + data);
         });
     </script>
 <?php get_footer(); ?>
