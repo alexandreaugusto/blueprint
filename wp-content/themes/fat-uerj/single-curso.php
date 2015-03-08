@@ -166,6 +166,10 @@ get_header(); ?>
     </div>
     <?php endwhile; ?>
     <script type="text/javascript">
-        jQuery('#disciplinas').jstree();
+        jQuery('#disciplinas').jstree()
+                .bind("select_node.jstree", function (e, data) {
+                var href = data.rslt.obj.children("a").attr("href");
+                document.location.href = href;
+        });
     </script>
 <?php get_footer(); ?>
