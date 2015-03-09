@@ -6,8 +6,7 @@ window.downloadFile = function (sUrl) {
         return false;
     }
 
-    //If in Chrome or Safari - download via virtual link click
-    if (window.downloadFile.isChrome || window.downloadFile.isSafari) {
+    if (window.downloadFile.isChrome || window.downloadFile.isSafari || window.downloadFile.isFirefox) {
         //Creating new link node.
         var link = document.createElement('a');
         link.href = sUrl;
@@ -35,3 +34,4 @@ window.downloadFile = function (sUrl) {
 
 window.downloadFile.isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
 window.downloadFile.isSafari = navigator.userAgent.toLowerCase().indexOf('safari') > -1;
+window.downloadFile.isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
