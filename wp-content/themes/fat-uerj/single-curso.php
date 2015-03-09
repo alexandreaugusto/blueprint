@@ -104,7 +104,9 @@ get_header(); ?>
                                 <?php
                                         foreach ( $attachments as $attachment ):
                                 ?>
-                                    <li><a href="<?php echo wp_get_attachment_url($attachment->ID); ?>" class="disciplina-link"><?php echo $attachment->post_title; ?></a></li>
+                                    <li data-jstree='{"icon":"<?php echo get_template_directory_uri(); ?>/img/file.png"}'>
+                                        <a href="<?php echo wp_get_attachment_url($attachment->ID); ?>" class="disciplina-link"><?php echo $attachment->post_title; ?></a>
+                                    </li>
                                 <?php
                                         endforeach;
                                 ?>
