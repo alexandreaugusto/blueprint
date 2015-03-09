@@ -104,7 +104,7 @@ get_header(); ?>
                                 <?php
                                         foreach ( $attachments as $attachment ):
                                 ?>
-                                    <li><a href="<?php echo wp_get_attachment_url($attachment->ID); ?>" download><?php echo $attachment->post_title; ?></a></li>
+                                    <li><a href="<?php echo wp_get_attachment_url($attachment->ID); ?>" class="disciplina-link"><?php echo $attachment->post_title; ?></a></li>
                                 <?php
                                         endforeach;
                                 ?>
@@ -126,21 +126,6 @@ get_header(); ?>
                   </li>
                 </ul>
               </div>
-            </div>
-            <div class="col-md-12">
-              <h4 class="text-uppercase">Material didático para download</h4>
-              <table class="table table-striped">
-                <tbody>
-                  <tr>
-                    <td>Aula-17-eletronica.ppt</td>
-                    <td><a href="#">https://dropbox.com/user/294664/aula-17.ppt</a></td>
-                  </tr>
-                  <tr>
-                    <td>quimica8.pdf</td>
-                    <td><a href="#">https://dropbox.com/user/294664/quim8.pdf</a></td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
           </div>
         </div>
@@ -168,11 +153,10 @@ get_header(); ?>
     <script type="text/javascript">
         jQuery('#disciplinas').jstree()
                 .bind("select_node.jstree", function (e, data) {
-                //var href = data.rslt.obj.children("a").attr("href");
-                //document.location.href = href;
                 e.preventDefault();
-                console.log("yyy: " + e.currentTarget);
-                window.location.href = data.node.a_attr.href;
+                if(data.node.a_attr.class == "disciplina-link") {
+                    downloadFile(data.node.a_attr.href);
+                }
         });
     </script>
 <?php get_footer(); ?>
