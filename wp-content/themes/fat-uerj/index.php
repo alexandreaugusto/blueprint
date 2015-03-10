@@ -10,7 +10,7 @@ get_header(); ?>
     <div class="jumbotron">
         <!-- Carousel -->
         <div id="carousel-featured" class="carousel slide" data-ride="carousel">
-            <?php $informativo = new WP_Query(array('order'=>'DESC', 'posts_per_page'=>4, 'orderby'=>'date', 'category_name'=>'informativo')); ?>
+            <?php $informativo = new WP_Query(array('order'=>'DESC', 'posts_per_page'=>4, 'orderby'=>'date', 'category_name'=>'noticias')); ?>
             <!-- Wrapper for slides -->
             <div class="carousel-inner row">
               <?php $cont=0;while($informativo->have_posts()):$informativo->the_post(); ?>
