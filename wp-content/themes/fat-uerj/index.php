@@ -16,14 +16,14 @@ get_header(); ?>
               <?php $cont=0;while($informativo->have_posts()):$informativo->the_post(); ?>
               <div class="<?php echo ($cont++ == 0)?"item active":"item"; ?>">
                 <span class="bg col-md-4">
-                  <img class="before-mask" src="<?php bloginfo('template_url'); ?>/img/before-mask.png">
                   <img class="thumb-featured" src="<?php bloginfo('template_url'); ?>/img/test.jpg">
-                  <img class="after-mask" src="<?php bloginfo('template_url'); ?>/img/after-mask.png">
+                  <span class="featured-shapes-before hidden-xs hidden-sm"></span>
+                  <span class="featured-shapes-after hidden-xs hidden-sm"></span>
                 </span>
                 <div class="box col-md-7">
-                  <div class="text"><span class="glyphicon glyphicon-calendar"></span> <?php the_date('d F'); ?></div>
+                  <div class="text text-uppercase"><span class="glyphicon glyphicon-calendar"></span> <?php the_date('j F, Y'); ?></div>
                   <h1 class="text"><?php the_title() ?></h1>
-                  <p class="text"><?php echo get_the_excerpt() ?></p>
+                  <p class="text"><?php the_excerpt() ?></p>
                   <p><a class="btn btn-default btn-lg" href="<?php the_permalink() ?>" role="button">Ler mais</a></p>
                 </div>
               </div>
@@ -40,6 +40,8 @@ get_header(); ?>
             <ol class="carousel-indicators">
               <li data-target="#carousel-featured" data-slide-to="0" class="active"></li>
               <li data-target="#carousel-featured" data-slide-to="1"></li>
+              <li data-target="#carousel-featured" data-slide-to="2"></li>
+              <li data-target="#carousel-featured" data-slide-to="3"></li>
             </ol>
         </div>
     </div>
@@ -75,7 +77,7 @@ get_header(); ?>
               </div>
             <div class="col-md-4">
                   <h4 class="text-uppercase">Pós-Graduação <small>Lato Sensu (Especialização)</small></h4>
-                  <?php $latoSensu = new WP_Query(array('post_type' => 'curso', 'tipo_curso' => 'lato-sensu')); ?>
+                  <?php $latoSensu = new WP_Query(array('post_type' => 'curso', 'tipo-curso' => 'lato-sensu')); ?>
                     <!-- Controls -->
                     <a class="left carousel-control" href="#carousel-pos" role="button" data-slide="prev">
                       <span class="glyphicon glyphicon-chevron-left"></span>
@@ -99,7 +101,7 @@ get_header(); ?>
               </div>
             <div class="col-md-4">
                   <h4 class="text-uppercase">Pós-Graduação <small>Stricto Sensu (Mestrado)</small></h4>
-                  <?php $strictoSensu = new WP_Query(array('post_type' => 'curso', 'tipo_curso' => 'stricto-sensu')); ?>
+                  <?php $strictoSensu = new WP_Query(array('post_type' => 'curso', 'tipo-curso' => 'stricto-sensu')); ?>
                     <!-- Controls
                     <a class="left carousel-control" href="#carousel-mestrado" role="button" data-slide="prev">
                       <span class="glyphicon glyphicon-chevron-left"></span>

@@ -40,11 +40,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><img src="<?php bloginfo('template_url'); ?>/img/logo-uerj.png" alt="Faculdade de Tecnologia UERJ - Resende"></a>
-          <div class="pull-right share hidden-xs">
-            <span class='st_facebook_large' displayText='Facebook'></span>
-            <span class='st_twitter_large' displayText='Tweet'></span>
-            <span class='st_googleplus_large' displayText='Google +'></span>
+          <a class="navbar-brand" href="#"><img src="<?php bloginfo('template_url'); ?>/img/logo.png" alt="Faculdade de Tecnologia UERJ - Resende"></a>
+          <div class="pull-right share-default hidden-xs">
+            <a href="#" class="btn btn-info"><span class="iconshare-twitter"></span></a>
+            <a href="#" class="btn btn-primary"><span class="iconshare-facebook"></span></a>
+            <a href="#" class="btn btn-danger"><span class="iconshare-gplus"></span></a>
           </div>
 
           <form class="navbar-form navbar-right input-group hidden-xs" role="search">
