@@ -23,7 +23,7 @@ get_header(); ?>
                 <div class="box col-md-7">
                   <div class="text text-uppercase"><span class="glyphicon glyphicon-calendar"></span> <?php the_date('j F, Y'); ?></div>
                   <h1 class="text"><?php the_title() ?></h1>
-                  <p class="text"><?php the_excerpt() ?></p>
+                  <p class="text"><?php echo get_the_excerpt() ?></p>
                   <p><a class="btn btn-default btn-lg" href="<?php the_permalink() ?>" role="button">Ler mais</a></p>
                 </div>
               </div>
@@ -53,7 +53,7 @@ get_header(); ?>
             <h2 class="text-center text-uppercase page-header">Conheça nossos cursos</h2>
             <div class="col-md-4">
                   <h4 class="text-uppercase">Graduação</h4>
-                  <?php $graduacao = new WP_Query(array('post_type' => 'curso', 'tipo_curso' => 'graduacao')); ?>
+                  <?php $graduacao = new WP_Query(array('post_type' => 'curso', 'tipo-curso' => 'graduacao')); ?>
                     <!-- Controls -->
                     <a class="left carousel-control" href="#carousel-graduacao" role="button" data-slide="prev">
                       <span class="glyphicon glyphicon-chevron-left"></span>
