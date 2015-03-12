@@ -25,7 +25,10 @@ get_header(); ?>
       <div class="row">
         <div class="col-md-9">
           <?php
-            query_posts( 'posts_per_page=1');
+            
+            global $query_string;
+            query_posts( $query_string . '&posts_per_page=1' );
+            
             // Check if there are any posts to display
             if ( have_posts() ) : ?>
           <?php
