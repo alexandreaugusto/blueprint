@@ -25,6 +25,7 @@ get_header(); ?>
       <div class="row">
         <div class="col-md-9">
           <?php
+            query_posts( 'posts_per_page=1');
             // Check if there are any posts to display
             if ( have_posts() ) : ?>
           <?php
@@ -44,7 +45,6 @@ get_header(); ?>
           </div>
           <?php endwhile; // End Loop ?>
           <div class="paginacao">
-            <span>Página <?php echo max( 1, get_query_var('paged') ) ." / " . $wp_query->max_num_pages; ?></span>
             <ul class="pagination pagination-lg">
               <li class="disabled"><?php previous_posts_link('&laquo;', 0); ?></li>
               <li class="active"><a href="#">1</a></li>
