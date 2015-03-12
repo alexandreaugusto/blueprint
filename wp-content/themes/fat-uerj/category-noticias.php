@@ -43,7 +43,15 @@ get_header(); ?>
             </div>
           </div>
           <?php endwhile; // End Loop
-          
+          <div class="paginacao">
+            <ul class="pagination pagination-lg">
+              <li class="disabled"><?php previous_posts_link('&laquo;', 0); ?></li>
+              <li class="active"><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><?php next_posts_link('&raquo;', 0); ?></li>
+            </ul>
+          </div>
             else: ?>
           <div class="row">
             <div class="col-md-4">
@@ -59,15 +67,6 @@ get_header(); ?>
             </div>
           </div>
           <?php endif; ?>
-          <div class="paginacao">
-            <ul class="pagination pagination-lg">
-              <li class="disabled"><a href="#">«</a></li>
-              <li class="active"><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">»</a></li>
-            </ul>
-          </div>
         </div>
         <?php get_sidebar(); ?>
       </div>
