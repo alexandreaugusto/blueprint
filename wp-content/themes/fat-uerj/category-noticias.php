@@ -42,7 +42,7 @@ get_header(); ?>
               <a class="btn btn-primary" href="<?php the_permalink(); ?>" role="button">Ler mais</a>
             </div>
           </div>
-          <?php endwhile; // End Loop
+          <?php endwhile; // End Loop ?>
           <div class="paginacao">
             <ul class="pagination pagination-lg">
               <li class="disabled"><?php previous_posts_link('&laquo;', 0); ?></li>
@@ -52,7 +52,7 @@ get_header(); ?>
               <li><?php next_posts_link('&raquo;', 0); ?></li>
             </ul>
           </div>
-            else: ?>
+          <?php else: ?>
           <div class="row">
             <div class="col-md-4">
               <a href="#">
