@@ -15,7 +15,7 @@ get_header(); ?>
             <h3 class="text-uppercase"><?php the_title(); ?></h3>
             <ul class="breadcrumb">
               <?php
-                $terms = get_the_terms( $post->ID, 'tipo_curso' );
+                $terms = get_the_terms( $post->ID, 'tipo-curso' );
                 $categories = $terms;
                 $cont = 0;
                 foreach($terms as $categ):
