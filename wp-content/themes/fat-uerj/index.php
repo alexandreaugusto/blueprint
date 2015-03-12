@@ -67,8 +67,8 @@ get_header(); ?>
                     <div class="carousel-inner">
                       <?php $cont=0;while($graduacao->have_posts()):$graduacao->the_post(); ?>
                       <div class="<?php echo ($cont++ == 0)?"item active":"item"; ?>">
-                        <h4><?php the_title() ?></h4>
-                        <p><?php the_excerpt() ?></p>
+                        <h4><?php echo get_the_title() ?></h4>
+                        <p><?php echo get_the_excerpt() ?></p>
                         <p><a class="btn btn-primary" href="<?php the_permalink() ?>" role="button">Saiba mais</a></p>
                       </div>
                       <?php endwhile;$cont=0; ?>
@@ -91,8 +91,8 @@ get_header(); ?>
                     <div class="carousel-inner">
                       <?php while($latoSensu->have_posts()):$latoSensu->the_post(); ?>
                       <div class="<?php echo ($cont++ == 0)?"item active":"item"; ?>">
-                        <h4><?php the_title() ?></h4>
-                        <p><?php the_excerpt() ?></p>
+                        <h4><?php echo get_the_title() ?></h4>
+                        <p><?php echo get_the_excerpt() ?></p>
                         <p><a class="btn btn-primary" href="<?php the_permalink() ?>" role="button">Saiba mais</a></p>
                       </div>
                       <?php endwhile;$cont = 0; ?>
@@ -115,8 +115,8 @@ get_header(); ?>
                     <div class="carousel-inner">
                       <?php while($strictoSensu->have_posts()):$strictoSensu->the_post(); ?>
                       <div class="<?php echo ($cont++ == 0)?"item active":"item"; ?>">
-                        <h4><?php the_title() ?></h4>
-                        <p><?php the_excerpt() ?></p>
+                        <h4><?php echo get_the_title() ?></h4>
+                        <p><?php echo get_the_excerpt() ?></p>
                         <p><a class="btn btn-primary" href="<?php the_permalink() ?>" role="button">Saiba mais</a></p>
                       </div>
                       <?php endwhile; ?>
