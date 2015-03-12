@@ -40,7 +40,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><img src="<?php bloginfo('template_url'); ?>/img/logo.png" alt="Faculdade de Tecnologia UERJ - Resende"></a>
+          <a class="navbar-brand" href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('template_url'); ?>/img/logo.png" alt="Faculdade de Tecnologia UERJ - Resende"></a>
           <div class="pull-right share-default hidden-xs">
             <a href="#" class="btn btn-info"><span class="iconshare-twitter"></span></a>
             <a href="#" class="btn btn-primary"><span class="iconshare-facebook"></span></a>
