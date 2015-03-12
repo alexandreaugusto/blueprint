@@ -36,7 +36,7 @@ get_header();
                     <div class="row">
                         <div class="col-md-12">
                             <h2 class="text-uppercase page-header"><?php the_title() ?></h2>
-                            <p><?php echo get_the_post_thumbnail(get_the_ID(), 'large'); ?></p>
+                            <p><?php echo get_the_post_thumbnail(get_the_ID()); ?></p>
                             <?php the_content() ?>
                         </div>
                     </div>
