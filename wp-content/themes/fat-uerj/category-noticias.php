@@ -44,6 +44,7 @@ get_header(); ?>
           </div>
           <?php endwhile; // End Loop ?>
           <div class="paginacao">
+            <span>Página <?php echo max( 1, get_query_var('paged') ) ." / " . $wp_query->max_num_pages; ?></span>
             <ul class="pagination pagination-lg">
               <li class="disabled"><?php previous_posts_link('&laquo;', 0); ?></li>
               <li class="active"><a href="#">1</a></li>
@@ -54,16 +55,8 @@ get_header(); ?>
           </div>
           <?php else: ?>
           <div class="row">
-            <div class="col-md-4">
-              <a href="#">
-                <img class="img-rounded" src="<?php bloginfo('template_url'); ?>/img/test.jpg">
-              </a>
-            </div>
-            <div class="col-md-8">
-              <time class="text-uppercase"><span class="glyphicon glyphicon-calendar"></span> 12 Novembro, 2014</time>
-              <h2>Prova do ENEM</h2>
-              <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit aliquip quis cardigan american apparel, butcher voluptate nisi qui...</p>
-              <a class="btn btn-primary" role="button">Ler mais</a>
+            <div class="col-md-12">
+              <p>Não há notícias por enquanto...</p>
             </div>
           </div>
           <?php endif; ?>
