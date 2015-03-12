@@ -1,6 +1,5 @@
 <?php
 /**
- * Template Name: Página 
  * @package WordPress
  * @subpackage fat-uerj
  * @since FAT-UERJ 1.0
@@ -31,28 +30,18 @@ get_header();
             </div>
         </div>
 
-        <div class="container main internal">
+        <div class="container main internal abas">
             <div class="row">
                 <div class="col-md-9">
                     <div class="row">
                         <div class="col-md-12">
                             <h2 class="text-uppercase page-header"><?php the_title() ?></h2>
-                            <p><?php echo get_the_post_thumbnail(get_the_ID(), 'featured-blog-thumb', array('class' => 'thumbnail')); ?></p>
+                            <p><?php echo get_the_post_thumbnail(get_the_ID(), 'large'); ?></p>
                             <?php the_content() ?>
                         </div>
                     </div>
                 </div>
-                <aside class="col-md-3">
-                    <ul class="list-group">
-                        <?php while($related->have_posts()):$related->the_post(); ?>
-                        <?php if(get_the_title() == $title): ?>
-                        <a href="<?php the_permalink() ?>" class="list-group-item active"><?php the_title() ?></a>
-                        <?php else: ?>
-                        <a href="<?php the_permalink() ?>" class="list-group-item"><?php the_title() ?></a>
-                        <?php endif; ?>
-                        <?php endwhile; ?>
-                    </ul>
-                </aside>
+                <?php get_sidebar('interna-nav'); ?>
             </div>
         </div>
     <?php endwhile; ?>
