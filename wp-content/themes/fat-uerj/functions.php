@@ -24,6 +24,8 @@ add_theme_support('post-thumbnails');
 
 remove_action('wp_head', 'wp_generator');
 
+remove_filter('the_excerpt', 'wpautop');
+
 function wpt_remove_version() {
     return '';
 }
