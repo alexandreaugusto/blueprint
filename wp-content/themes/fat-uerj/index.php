@@ -16,7 +16,7 @@ get_header(); ?>
               <?php $cont=0;while($informativo->have_posts()):$informativo->the_post(); ?>
               <div class="<?php echo ($cont++ == 0)?"item active":"item"; ?>">
                 <span class="bg col-md-4">
-                  <img class="thumb-featured" src="<?php bloginfo('template_url'); ?>/img/test.jpg">
+                  <?php echo get_the_post_thumbnail(get_the_ID(), '', array('class'=>'thumb-featured')); ?>
                   <span class="featured-shapes-before hidden-xs hidden-sm"></span>
                   <span class="featured-shapes-after hidden-xs hidden-sm"></span>
                 </span>
