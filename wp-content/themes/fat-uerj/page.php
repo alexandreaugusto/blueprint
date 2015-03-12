@@ -13,7 +13,6 @@ get_header();
                 <div class="row">
                     <div class="col-md-12">
         <?php
-            global $titulo;
             $titulo = get_field("tipo_pagina");
             $titulo = explode("|", $titulo);
             $title = get_the_title();
