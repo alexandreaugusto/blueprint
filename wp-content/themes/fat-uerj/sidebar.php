@@ -9,18 +9,16 @@
           <div>
             <h4 class="text-uppercase">Tópicos</h4>
             <div class="list-group">
-              <a href="#" class="list-group-item">Congressos <span class="badge">10</span></a>
-              <a href="#" class="list-group-item">Dicas para TCC <span class="badge">13</span></a>
-              <a href="#" class="list-group-item">Eventos <span class="badge">7</span></a>
+              <?php $cats = get_categories(array('child_of' => get_cat_ID('noticias'), 'hide_empty' => 0));foreach($cats as $cat): ?>
+              <a href="<?php echo get_category_link($cat->term_id); ?>" class="list-group-item"><?php echo $cat->name; ?> <span class="badge"><?php echo $cat->count; ?></span></a>
+              <?php endforeach; ?>
             </div>
           </div>
           <div>
             <h4 class="text-uppercase">Arquivo</h4>
             <select class="form-control">
-              <option value="">Dezembro 2014 (13)</option>
-              <option value="">Novembro 2014 (4)</option>
-              <option value="">Outubro 2014 (9)</option>
-              <option value="">Setembro 2014 (3)</option>
+                <option value=""><?php echo esc_attr( __( 'Select Month' ) ); ?></option>
+                <?php wp_get_archives( array( 'type' => 'monthly', 'format' => 'option', 'show_post_count' => 1 ) ); ?>
             </select>
           </div>
         </aside>
