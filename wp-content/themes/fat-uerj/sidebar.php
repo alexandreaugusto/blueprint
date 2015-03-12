@@ -16,7 +16,7 @@
           </div>
           <div>
             <h4 class="text-uppercase">Arquivo</h4>
-            <select class="form-control">
+            <select class="form-control" onchange="document.location.href=this.options[this.selectedIndex].value;">
                 <option value=""><?php echo esc_attr( __( 'Select Month' ) ); ?></option>
                 <?php wp_get_archives( array( 'type' => 'monthly', 'format' => 'option', 'show_post_count' => 1 ) ); ?>
             </select>
