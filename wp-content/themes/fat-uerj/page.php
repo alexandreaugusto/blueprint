@@ -14,8 +14,6 @@ get_header();
                     <div class="col-md-12">
         <?php
             $titulo = get_field("tipo_pagina");
-            $args = array('post_type' => 'page', 'meta_key' => 'tipo_pagina', 'meta_query' => array(array('key' => 'tipo_pagina', 'value' => $titulo),),);
-            $related = new WP_Query($args);
             $titulo = explode("|", $titulo);
             $title = get_the_title();
         ?>

@@ -4,6 +4,8 @@
  * @subpackage fat-uerj
  * @since FAT-UERJ 1.0
  */
+    $args = array('post_type' => 'page', 'meta_key' => 'tipo_pagina', 'meta_query' => array(array('key' => 'tipo_pagina', 'value' => $titulo),),);
+    $related = new WP_Query($args);
 ?>
                 <aside class="col-md-3">
                     <ul class="list-group">
