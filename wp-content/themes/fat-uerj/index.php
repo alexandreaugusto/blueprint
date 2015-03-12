@@ -38,10 +38,9 @@ get_header(); ?>
             </a>-->
             <!-- Indicators -->
             <ol class="carousel-indicators">
-              <li data-target="#carousel-featured" data-slide-to="0" class="active"></li>
-              <li data-target="#carousel-featured" data-slide-to="1"></li>
-              <li data-target="#carousel-featured" data-slide-to="2"></li>
-              <li data-target="#carousel-featured" data-slide-to="3"></li>
+                <?php for($i=0;$i<$informativo->found_posts;$i++): ?>
+              <li data-target="#carousel-featured" data-slide-to="<?php echo $i; ?>"<?php if($i==0): ?> class="active"<?php endif?>></li>
+                <?php endfor; ?>
             </ol>
         </div>
     </div>
