@@ -82,7 +82,7 @@ $menuitems = wp_get_nav_menu_items( 'footer_navigation', array( 'order' => 'DESC
         <div class="container">
             <div class="row">
                 <div class="col-md-2 col-sm-3 col-xs-4">
-                    <a href="">
+                    <a href="<?php bloginfo('url'); ?>">
                         <img src="<?php bloginfo('template_url'); ?>/img/logo-uerj.png">
                     </a>
                 </div>
