@@ -27,7 +27,7 @@ get_header(); ?>
           <?php
             
             global $query_string;
-            query_posts( $query_string . '&posts_per_page=1' );
+            query_posts( $query_string . '&posts_per_page=8' );
             
             // Check if there are any posts to display
             if ( have_posts() ) : ?>
@@ -36,7 +36,7 @@ get_header(); ?>
           <div class="row">
             <div class="col-md-4">
               <a href="<?php the_permalink(); ?>">
-                <img class="img-rounded" src="<?php bloginfo('template_url'); ?>/img/test.jpg">
+                <?php echo get_the_post_thumbnail(get_the_ID(), 'medium', array('class'=>'img-rounded'));  ?>
               </a>
             </div>
             <div class="col-md-8">
