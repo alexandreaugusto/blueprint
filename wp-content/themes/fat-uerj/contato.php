@@ -31,15 +31,15 @@ get_header();
             <div class="col-md-7">
                 <form class="form-horizontal" id="form-contato" method="post">
                   <fieldset>
-                    <div class="form-group has-success has-feedback">
+                    <div class="form-group"><!-- <div class="form-group has-success has-feedback"> -->
                       <label for="inputName" class="col-lg-2 control-label">Nome</label>
                       <div class="col-lg-10">
                         <input type="text" class="form-control" id="inputName" name="nome" placeholder="Digite seu nome...">
-                        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-                        <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                        <!--<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                        <span id="inputSuccess2Status" class="sr-only">(success)</span>-->
                       </div>
                     </div>
-                    <div class="form-group has-error">
+                    <div class="form-group"><!-- <div class="form-group has-error"> -->
                       <label for="inputEmail" class="col-lg-2 control-label">E-mail</label>
                       <div class="col-lg-10">
                         <input type="text" class="form-control" id="inputEmail" name="email" placeholder="Qual seu e-mail?">
@@ -77,7 +77,7 @@ get_header();
                         <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
                       </div>
                       <div class="col-xs-9 col-lg-7">
-                        <div class="alert alert-success" role="alert"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Sua mensagem foi enviada com sucesso!</div>
+                        <!--<div class="alert alert-success" role="alert"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Sua mensagem foi enviada com sucesso!</div>-->
                       </div>
                     </div>
                   </fieldset>
