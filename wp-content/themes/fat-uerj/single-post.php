@@ -55,6 +55,8 @@ get_header(); ?>
           </div>
         </div>
         <?php get_sidebar(); ?>
+        </div>
+    </div>
     <?php endwhile; ?>
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
