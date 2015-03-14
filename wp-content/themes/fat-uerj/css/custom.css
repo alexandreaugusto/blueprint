@@ -74,8 +74,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007138', end
 .jumbotron .carousel-inner>.item>.bg { display: block; background: #000000; overflow: hidden; padding: 0; margin-left: 3%; }
 .jumbotron .carousel-inner>.item>.bg>img.thumb-featured, .jumbotron .item>.bg { height: 340px; max-height: 340px; }
 .jumbotron .carousel-inner>.item>.bg>.featured-shapes-before, .jumbotron .carousel-inner>.item>.bg>.featured-shapes-after { position: absolute; top: 0; width: 0; height: 0; }
-.jumbotron .carousel-inner>.item>.bg>.featured-shapes-before { left: 0; border-top: 170px solid #007138; border-left: 50px solid #007138; border-right: 50px solid transparent; border-bottom: 180px solid transparent; }
-.jumbotron .carousel-inner>.item>.bg>.featured-shapes-after { right: 0; border-top: 700px solid transparent; border-left: 240px solid transparent; border-right: 240px solid #007138; border-bottom: 240px solid #007138; }
+.jumbotron .carousel-inner>.item>.bg>.featured-shapes-before { left: 0; border-top: 180px solid #007138; border-left: 70px solid #007138; border-right: 70px solid transparent; border-bottom: 180px solid transparent; }
+.jumbotron .carousel-inner>.item>.bg>.featured-shapes-after { right: 0; border-top: 380px solid transparent; border-left: 0px solid transparent; border-right: 140px solid #007138; border-bottom: 0px solid #007138; }
 /* Image animate CSS3 */
 .jumbotron .carousel-inner>.item>.bg>img.thumb-featured { 
 	-webkit-transition: all .3s ease-in-out;
@@ -111,10 +111,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007138', end
 /* Button */
 .btn-lg, .btn-group-lg > .btn { font-size: 16px; }
 
-/* Departamentos */
-.departamentos>div img { width: 100%; height: 200px; max-height: 200px; }
-.departamentos>div div, .departamentos span { position: absolute; top: 0; left: 15px; right: 15px; bottom: 0; height: 100%; padding: 10px 20px; }
-.departamentos>div span {  display: block; overflow: hidden; opacity: 0.7;
+/* Box Departamentos */
+.box-departamentos>div img { width: 100%; height: 200px; max-height: 200px; }
+.box-departamentos>div div, .box-departamentos span { position: absolute; top: 0; left: 15px; right: 15px; bottom: 0; height: 100%; padding: 10px 20px; }
+.box-departamentos>div span {  display: block; overflow: hidden; opacity: 0.7;
 background: #007138;
 background: -moz-linear-gradient(45deg,  #007138 50%, #007eb4 100%);
 background: -webkit-gradient(linear, left bottom, right top, color-stop(50%,#007138), color-stop(100%,#007eb4));
@@ -129,9 +129,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007138', end
 	-o-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
 }
-.departamentos>div a { display: block; }
-.departamentos>div a:hover span { opacity: 0.9; }
-.departamentos>div div h4 { color: #ffffff; }
+.box-departamentos>div a { display: block; }
+.box-departamentos>div a:hover span { opacity: 0.9; }
+.box-departamentos>div div h4 { color: #ffffff; }
 
 
 /* Sidebar */
@@ -186,6 +186,8 @@ footer small { display: block; }
 .main.internal.news .entry-content div.alignright { float: right; margin-left: 20px; margin-bottom: 20px; margin-top: 10px; }
 .main.internal.news .entry-content .wp-caption>.wp-caption-text { padding: 10px 8px 0 8px; margin-bottom: 0 !important; }
 
+/* Departamentos */
+.main.internal.departamentos .well.col-md-12 { margin-top: 30px; }
 
 /* Icon */
 .share strong { margin-bottom: 10px; }
