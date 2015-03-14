@@ -38,13 +38,6 @@ get_header();
                             $subchefe = get_field('subchefe');
                             $coordenador = get_field('coordenador');
                         ?>
-                        <div class="professor col-md-4">
-              <h4 class="text-uppercase">Coordenação</h4>
-              <?php echo $coordenador['user_avatar']; ?>
-              <h4><?php echo $coordenador['user_firstname'] . " " . $coordenador['user_lastname']; ?></h4>
-              <p><?php echo $coordenador['user_description']; ?></p>
-              <a href="<?php echo get_the_author_meta('usr_lattes', $coordenador['ID']); ?>">Currículo Lattes</a>
-            </div>
                         <div class="well col-md-12">
                             <div class="col-md-4">
                                 <h4 class="text-uppercase">Chefe</h4>
