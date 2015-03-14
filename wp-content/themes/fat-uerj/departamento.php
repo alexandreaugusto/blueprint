@@ -32,28 +32,40 @@ get_header();
                     <div class="col-md-12">
                         <h2 class="text-uppercase page-header"><?php the_title(); ?></h2>
                         <p><?php echo preg_replace('/class=".*?"/', '', get_the_post_thumbnail(get_the_ID(), 'medium')); ?></p>
-                        <?php the_content(); ?>
+                        <?php
+                            the_content();
+                            $chefe = get_field('chefe');
+                            $subchefe = get_field('subchefe');
+                            $coordenador = get_field('coordenador');
+                        ?>
+                        <div class="professor col-md-4">
+              <h4 class="text-uppercase">Coordenação</h4>
+              <?php echo $coordenador['user_avatar']; ?>
+              <h4><?php echo $coordenador['user_firstname'] . " " . $coordenador['user_lastname']; ?></h4>
+              <p><?php echo $coordenador['user_description']; ?></p>
+              <a href="<?php echo get_the_author_meta('usr_lattes', $coordenador['ID']); ?>">Currículo Lattes</a>
+            </div>
                         <div class="well col-md-12">
                             <div class="col-md-4">
                                 <h4 class="text-uppercase">Chefe</h4>
                                     <img class="img-rounded" src="http://placehold.it/150x150">
-                                    <h4>Dr. Nelson Matias</h4>
-                                    <p>Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Cosbysweater eu banh mi, qui irure terry richardson ex squid.</p>
-                                    <a href="#">Currículo Lattes</a>
+                                    <h4><?php echo $chefe['user_firstname'] . " " . $chefe['user_lastname']; ?></h4>
+                                    <p><?php echo $chefe['user_firstname'] . " " . $chefe['user_description']; ?></p>
+                                    <a href="<?php echo get_the_author_meta('usr_lattes', $chefe['ID']); ?>">Currículo Lattes</a>
                             </div>
                             <div class="col-md-4">
                                 <h4 class="text-uppercase">Subchefe</h4>
                                 <img class="img-rounded" src="http://placehold.it/150x150">
-                                <h4>Dr. Nelson Matias</h4>
-                                <p>Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Cosbysweater eu banh mi, qui irure terry richardson ex squid.</p>
-                                <a href="#">Currículo Lattes</a>
+                                <h4><?php echo $subchefe['user_firstname'] . " " . $subchefe['user_lastname']; ?></h4>
+                                <p><?php echo $subchefe['user_firstname'] . " " . $subchefe['user_description']; ?></p>
+                                <a href="<?php echo get_the_author_meta('usr_lattes', $subchefe['ID']); ?>">Currículo Lattes</a>
                             </div>
                             <div class="col-md-4">
                                 <h4 class="text-uppercase">Coordenador</h4>
                                 <img class="img-rounded" src="http://placehold.it/150x150">
-                                <h4>Dr. Nelson Matias</h4>
-                                <p>Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Cosbysweater eu banh mi, qui irure terry richardson ex squid.</p>
-                                <a href="#">Currículo Lattes</a>
+                                <h4><?php echo $coordenador['user_firstname'] . " " . $coordenador['user_lastname']; ?></h4>
+                                <p><?php echo $coordenador['user_firstname'] . " " . $coordenador['user_description']; ?></p>
+                                <a href="<?php echo get_the_author_meta('usr_lattes', $coordenador['ID']); ?>">Currículo Lattes</a>
                             </div>
                         </div>
                     </div>
