@@ -32,7 +32,7 @@ get_header();
                     <div class="col-md-12">
                         <h2 class="text-uppercase page-header"><?php the_title(); ?></h2>
                         <p><?php echo preg_replace('/class=".*?"/', '', get_the_post_thumbnail(get_the_ID(), 'medium')); ?></p>
-                        <?php the_content(); ?>
+                        <p><?php the_content(); ?></p>
                         <div class="well col-md-12">
                             <div class="col-md-4">
                                 <h4 class="text-uppercase">Chefe</h4>
