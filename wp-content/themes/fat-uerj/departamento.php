@@ -17,7 +17,7 @@ get_header();
                 <ul class="breadcrumb">
                   <li><a href="<?php bloginfo('url'); ?>">Home</a></li>
                   <li><a href="#">CRR</a></li>
-                  <li><a href="#">Departamentos</a></li>
+                  <li><a href="<?php echo esc_url(get_category_link(get_cat_ID('Departamentos'))); ?>">Departamentos</a></li>
                   <li class="active"><?php the_title(); ?></li>
                 </ul>
               </div>
