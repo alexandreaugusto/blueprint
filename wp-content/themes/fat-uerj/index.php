@@ -105,7 +105,7 @@ get_header(); ?>
                     <div class="carousel-inner">
                         <?php while($posgrad->have_posts()):$posgrad->the_post(); ?>
                         <div class="<?php echo ($cont++ == 0)?"item active":"item"; ?>">
-                            <h4><?php echo get_the_title();$categories = get_the_category();echo " ".  count($categories); ?> <small><?php echo $categories[0]->cat_name; ?></small></h4>
+                            <h4><?php echo get_the_title();$terms = get_the_terms(get_the_ID(), 'tipo-curso'); ?> <small><?php echo $terms[0]->name; ?></small></h4>
                             <p><?php the_excerpt() ?></p>
                             <p><a class="btn btn-primary" href="<?php the_permalink() ?>" role="button">Saiba mais</a></p>
                         </div>
