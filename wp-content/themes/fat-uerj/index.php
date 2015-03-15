@@ -138,43 +138,19 @@ get_header(); ?>
         </div>
 
         <div class="row box-departamentos">
-          <h2 class="text-center text-uppercase page-header">Veja nossos departamentos</h2>
-          <div class="col-md-3 col-xs-6">
-            <a href="#">
-              <img class="img-rounded" src="<?php bloginfo('template_url') ?>/img/test.jpg">
-              <span class="img-rounded"></span>
-              <div>
-                <h4>Departamento de Matemática, Física e Computação</h4>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-3 col-xs-6">
-            <a href="#">
-              <img class="img-rounded" src="<?php bloginfo('template_url') ?>/img/test.jpg">
-              <span class="img-rounded"></span>
-              <div>
-                <h4>Departamento de Engenharia de Produção</h4>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-3 col-xs-6">
-            <a href="#">
-              <img class="img-rounded" src="<?php bloginfo('template_url') ?>/img/test.jpg">
-              <span class="img-rounded"></span>
-              <div>
-                <h4>Departamento de Mecânica e Energia</h4>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-3 col-xs-6">
-            <a href="#">
-                <img class="img-rounded" src="<?php bloginfo('template_url') ?>/img/test.jpg">
-              <span class="img-rounded"></span>
-              <div>
-                <h4>Departamento de Química e Ambiental</h4>
-              </div>
-            </a>
-          </div>
+            <h2 class="text-center text-uppercase page-header">Veja nossos departamentos</h2>
+            <?php $departamentos = new WP_Query(array('post_type' => 'page', 'category_name' => 'departamentos', 'orderby' => 'ID', 'order' => 'ASC')); ?>
+            <?php while ($departamentos->have_posts()):$departamentos->the_post(); ?>
+            <div class="col-md-3 col-xs-6">
+                <a href="<?php the_permalink() ?>">
+                    <img class="img-rounded" src="<?php bloginfo('template_url') ?>/img/test.jpg">
+                    <span class="img-rounded"></span>
+                    <div>
+                        <h4><?php the_title() ?></h4>
+                    </div>
+                </a>
+            </div>
+            <?php endwhile; ?>
         </div>
         
     </div>
