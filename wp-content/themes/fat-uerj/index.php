@@ -88,7 +88,7 @@ get_header(); ?>
                 <div id="carousel-pos" class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
-                        <?php while($posgrad->have_posts()):$latoSensu->the_post(); ?>
+                        <?php while($posgrad->have_posts()):$posgrad->the_post(); ?>
                         <div class="<?php echo ($cont++ == 0)?"item active":"item"; ?>">
                             <h4><?php echo get_the_title() ?> <small>Lato Sensu (Especialização)</small></h4>
                             <p><?php the_excerpt() ?></p>
