@@ -75,53 +75,29 @@ get_header(); ?>
                   </div>
               </div>
             <div class="col-md-4">
-                  <h4 class="text-uppercase">Pós-Graduação <small>Lato Sensu (Especialização)</small></h4>
-                  <?php $latoSensu = new WP_Query(array('post_type' => 'curso', 'tipo-curso' => 'lato-sensu')); ?>
-                    <!-- Controls -->
-                    <a class="left carousel-control" href="#carousel-pos" role="button" data-slide="prev">
-                      <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-pos" role="button" data-slide="next">
-                      <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
-                  <!-- Carousel -->
-                  <div id="carousel-pos" class="carousel slide" data-ride="carousel">
+                <h4 class="text-uppercase">Pós-Graduação</h4>
+                <?php $posgrad = new WP_Query(array('post_type=curso&category_name=stricto-sensu+lato-sensu')); ?>
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-pos" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-pos" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+                <!-- Carousel -->
+                <div id="carousel-pos" class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
-                      <?php while($latoSensu->have_posts()):$latoSensu->the_post(); ?>
-                      <div class="<?php echo ($cont++ == 0)?"item active":"item"; ?>">
-                        <h4><?php echo get_the_title() ?></h4>
-                        <p><?php the_excerpt() ?></p>
-                        <p><a class="btn btn-primary" href="<?php the_permalink() ?>" role="button">Saiba mais</a></p>
-                      </div>
-                      <?php endwhile;$cont = 0; ?>
+                        <?php while($posgrad->have_posts()):$latoSensu->the_post(); ?>
+                        <div class="<?php echo ($cont++ == 0)?"item active":"item"; ?>">
+                            <h4><?php echo get_the_title() ?> <small>Lato Sensu (Especialização)</small></h4>
+                            <p><?php the_excerpt() ?></p>
+                            <p><a class="btn btn-primary" href="<?php the_permalink() ?>" role="button">Saiba mais</a></p>
+                        </div>
+                        <?php endwhile;$cont = 0; ?>
                     </div>
-                  </div>
-              </div>
-            <div class="col-md-4">
-                  <h4 class="text-uppercase">Pós-Graduação <small>Stricto Sensu (Mestrado)</small></h4>
-                  <?php $strictoSensu = new WP_Query(array('post_type' => 'curso', 'tipo-curso' => 'stricto-sensu')); ?>
-                    <!-- Controls
-                    <a class="left carousel-control" href="#carousel-mestrado" role="button" data-slide="prev">
-                      <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-mestrado" role="button" data-slide="next">
-                      <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a> -->
-                  <!-- Carousel -->
-                  <div id="carousel-mestrado" class="carousel slide" data-ride="carousel">
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                      <?php while($strictoSensu->have_posts()):$strictoSensu->the_post(); ?>
-                      <div class="<?php echo ($cont++ == 0)?"item active":"item"; ?>">
-                        <h4><?php echo get_the_title() ?></h4>
-                        <p><?php the_excerpt() ?></p>
-                        <p><a class="btn btn-primary" href="<?php the_permalink() ?>" role="button">Saiba mais</a></p>
-                      </div>
-                      <?php endwhile; ?>
-                    </div>
-                  </div>
-              </div>
+                </div>
+            </div>
             </div>
           </div>
         </div>
