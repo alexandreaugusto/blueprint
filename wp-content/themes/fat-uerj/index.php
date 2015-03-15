@@ -76,7 +76,22 @@ get_header(); ?>
               </div>
             <div class="col-md-4">
                 <h4 class="text-uppercase">Pós-Graduação</h4>
-                <?php $posgrad = new WP_Query(array('post_type=curso&category_name=stricto-sensu+lato-sensu')); ?>
+                <?php
+                
+                $args = array(
+                    'post_type' => 'curso',
+                    'tax_query' => array(
+                    'relation' => 'AND',
+                    array(
+                            'taxonomy' => 'tipo-curso',
+                            'field'    => 'slug',
+                            'terms'    => array( 'stricto-sensu', 'lato-sensu' ),
+                        ),
+                    ),
+                );
+                $posgrad = new WP_Query('post_type=curso&category_name=stricto-sensu+lato-sensu');
+                
+                ?>
                 <!-- Controls -->
                 <a class="left carousel-control" href="#carousel-pos" role="button" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left"></span>
