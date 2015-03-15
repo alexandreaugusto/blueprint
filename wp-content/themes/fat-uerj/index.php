@@ -43,7 +43,7 @@ get_header(); ?>
                 <?php endfor; ?>
             </ol>
         </div>
-    </div>
+    
 
     <div class="container main">
       <div class="row">
@@ -176,5 +176,6 @@ get_header(); ?>
             </a>
           </div>
         </div>
+    </div>
 
 <?php get_footer(); ?>
