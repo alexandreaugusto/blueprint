@@ -89,7 +89,7 @@ get_header(); ?>
                         ),
                     ),
                 );
-                $posgrad = new WP_Query('post_type=curso&category_name=stricto-sensu+lato-sensu');
+                $posgrad = new WP_Query($args);
                 
                 ?>
                 <!-- Controls -->
@@ -137,12 +137,12 @@ get_header(); ?>
             </div>
           </div>
         </div>
-        <div class="row departamentos">
+        <div class="row box-departamentos">
           <h2 class="text-center text-uppercase page-header">Veja nossos departamentos</h2>
           <div class="col-md-3 col-xs-6">
             <a href="#">
-              <img src="<?php bloginfo('template_url'); ?>/img/test.jpg">
-              <span></span>
+              <img class="img-rounded" src="<?php bloginfo('template_url') ?>/img/test.jpg">
+              <span class="img-rounded"></span>
               <div>
                 <h4>Departamento de Matemática, Física e Computação</h4>
               </div>
@@ -150,8 +150,8 @@ get_header(); ?>
           </div>
           <div class="col-md-3 col-xs-6">
             <a href="#">
-              <img src="<?php bloginfo('template_url'); ?>/img/test.jpg">
-              <span></span>
+              <img class="img-rounded" src="<?php bloginfo('template_url') ?>/img/test.jpg">
+              <span class="img-rounded"></span>
               <div>
                 <h4>Departamento de Engenharia de Produção</h4>
               </div>
@@ -159,8 +159,8 @@ get_header(); ?>
           </div>
           <div class="col-md-3 col-xs-6">
             <a href="#">
-              <img src="<?php bloginfo('template_url'); ?>/img/test.jpg">
-              <span></span>
+              <img class="img-rounded" src="<?php bloginfo('template_url') ?>/img/test.jpg">
+              <span class="img-rounded"></span>
               <div>
                 <h4>Departamento de Mecânica e Energia</h4>
               </div>
@@ -168,8 +168,8 @@ get_header(); ?>
           </div>
           <div class="col-md-3 col-xs-6">
             <a href="#">
-              <img src="<?php bloginfo('template_url'); ?>/img/test.jpg">
-              <span></span>
+                <img class="img-rounded" src="<?php bloginfo('template_url') ?>/img/test.jpg">
+              <span class="img-rounded"></span>
               <div>
                 <h4>Departamento de Química e Ambiental</h4>
               </div>
