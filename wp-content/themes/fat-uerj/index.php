@@ -143,7 +143,7 @@ get_header(); ?>
             <?php while ($departamentos->have_posts()):$departamentos->the_post(); ?>
             <div class="col-md-3 col-xs-6">
                 <a href="<?php the_permalink() ?>">
-                    <img class="img-rounded" src="<?php bloginfo('template_url') ?>/img/test.jpg">
+                    <?php echo get_the_post_thumbnail(get_the_ID(), 'medium', array('class'=>'img-rounded')); ?>
                     <span class="img-rounded"></span>
                     <div>
                         <h4><?php the_title() ?></h4>
