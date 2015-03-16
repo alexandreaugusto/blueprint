@@ -7,9 +7,9 @@
 ?>
             <aside class="col-md-3">
                 <ul class="list-group">
-                    <a href="#" class="list-group-item active">Departamento de Matemática, Física e Computação</a>
-                    <a href="#" class="list-group-item">Departamento de Engenharia de Produção</a>
-                    <a href="#" class="list-group-item">Departamento de Mecânica e Energia</a>
-                    <a href="#" class="list-group-item">Departamento de Química e Ambiental</a>
+                    <?php $departamentos = new WP_Query(array('post_type' => 'page', 'category_name' => 'departamentos', 'orderby' => 'ID', 'order' => 'ASC')); ?>
+                    <?php while ($departamentos->have_posts()):$departamentos->the_post(); ?>
+                    <li><a href="<?php the_permalink(); ?>" class="list-group-item active"><?php the_title(); ?></a></li>
+                    <?php endwhile; ?>
                 </ul>
             </aside>
