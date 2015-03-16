@@ -41,21 +41,21 @@ get_header();
                         <div class="well col-md-12">
                             <div class="col-md-4">
                                 <h4 class="text-uppercase">Chefe</h4>
-                                    <img class="img-rounded" src="http://placehold.it/150x150">
+                                    <?php echo $chefe['user_avatar']; ?>
                                     <h4><?php echo $chefe['user_firstname'] . " " . $chefe['user_lastname']; ?></h4>
                                     <p><?php echo $chefe['user_firstname'] . " " . $chefe['user_description']; ?></p>
                                     <a href="<?php echo get_the_author_meta('usr_lattes', $chefe['ID']); ?>">Currículo Lattes</a>
                             </div>
                             <div class="col-md-4">
                                 <h4 class="text-uppercase">Subchefe</h4>
-                                <img class="img-rounded" src="http://placehold.it/150x150">
+                                <?php echo $subchefe['user_avatar']; ?>
                                 <h4><?php echo $subchefe['user_firstname'] . " " . $subchefe['user_lastname']; ?></h4>
                                 <p><?php echo $subchefe['user_firstname'] . " " . $subchefe['user_description']; ?></p>
                                 <a href="<?php echo get_the_author_meta('usr_lattes', $subchefe['ID']); ?>">Currículo Lattes</a>
                             </div>
                             <div class="col-md-4">
                                 <h4 class="text-uppercase">Coordenador</h4>
-                                <img class="img-rounded" src="http://placehold.it/150x150">
+                                <?php echo $coordenador['user_avatar']; ?>
                                 <h4><?php echo $coordenador['user_firstname'] . " " . $coordenador['user_lastname']; ?></h4>
                                 <p><?php echo $coordenador['user_firstname'] . " " . $coordenador['user_description']; ?></p>
                                 <a href="<?php echo get_the_author_meta('usr_lattes', $coordenador['ID']); ?>">Currículo Lattes</a>
