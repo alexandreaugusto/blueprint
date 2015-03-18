@@ -26,7 +26,7 @@ get_header(); ?>
               <li><a href="<?php bloginfo("url") ?>">Home</a></li>
               <li><a href="#">Ensino</a></li>
               <?php foreach($categories as $cat): ?>
-              <li><a href="<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></a></li>
+              <li><a href="<?php echo esc_url(get_term_link($cat->slug, 'tipo-curso')); ?>"><?php echo $cat->name; ?></a></li>
               <?php endforeach; ?>
               <li class="active"><?php the_title(); ?></li>
             </ul>
