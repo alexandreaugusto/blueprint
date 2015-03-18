@@ -12,15 +12,10 @@ get_header();
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-        <?php
-            $titulo = get_field("tipo_pagina");
-            $titulo = explode("|", $titulo);
-            $title = get_the_title();
-        ?>
                         <h3 class="text-uppercase"><?php echo $titulo[0]; ?></h3>
                         <ul class="breadcrumb">
                             <li><a href="<?php bloginfo("url") ?>">Home</a></li>
-                            <li><a href="#"><?php echo $titulo[0]; ?></a></li>
+                            <li><a href="<?php echo esc_url(get_category_link(get_cat_ID('Instalações'))); ?>">Instalações</a></li>
                             <li class="active"><?php the_title() ?></li>
                         </ul>
                     </div>
