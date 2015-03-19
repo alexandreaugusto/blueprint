@@ -22,6 +22,8 @@ add_filter('show_admin_bar', '__return_false');
 //post-thumbnail
 add_theme_support('post-thumbnails');
 
+add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'widgets' ) );
+
 remove_action('wp_head', 'wp_generator');
 
 remove_filter('the_excerpt', 'wpautop');
