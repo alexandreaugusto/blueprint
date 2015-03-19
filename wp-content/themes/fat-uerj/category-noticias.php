@@ -24,14 +24,7 @@ get_header(); ?>
     <div class="container main internal news">
       <div class="row">
         <div class="col-md-9">
-          <?php
-            
-            global $query_string;
-            query_posts( $query_string . '&posts_per_page=8' );
-            
-            // Check if there are any posts to display
-            if ( have_posts() ) : ?>
-          <?php
+          <?php if ( have_posts() ) :
             while ( have_posts() ) : the_post(); ?>
           <div class="row">
             <div class="col-md-4">
@@ -40,13 +33,18 @@ get_header(); ?>
               </a>
             </div>
             <div class="col-md-8">
-              <time class="text-uppercase"><span class="glyphicon glyphicon-calendar"></span> <?php the_date('j F, Y'); ?></time>
+              <time class="text-uppercase" datetime="<?php the_date('Y-m-d H:i:s'); ?>"><span class="glyphicon glyphicon-calendar"></span> <?php the_date('j F, Y'); ?></time>
               <h2><?php the_title(); ?></h2>
               <p><?php the_excerpt() ?></p>
               <a class="btn btn-primary" href="<?php the_permalink(); ?>" role="button">Ler mais</a>
             </div>
           </div>
-          <?php endwhile; // End Loop ?>
+          <?php
+            endwhile; // End Loop
+            
+            global $wp_query;
+            if($wp_query->found_posts > 10):
+          ?>
           <div class="paginacao">
             <ul class="pagination pagination-lg">
               <li class="disabled"><?php previous_posts_link('&laquo;', 0); ?></li>
@@ -56,6 +54,7 @@ get_header(); ?>
               <li><?php next_posts_link('&raquo;', 0); ?></li>
             </ul>
           </div>
+            <?php endif; ?>
           <?php else: ?>
           <div class="row">
             <div class="col-md-12">
