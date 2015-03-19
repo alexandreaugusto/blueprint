@@ -11,10 +11,10 @@ get_header(); ?>
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h3 class="text-uppercase">Arquivo: <?php echo get_the_date('F Y'); ?></h3>
+            <h3 class="text-uppercase">Arquivo: <?php $mes = get_the_date('F Y');echo $mes; ?></h3>
             <ul class="breadcrumb">
               <li><a href="<?php bloginfo("url") ?>">Home</a></li>
-              <li class="active">Arquivo: <?php echo single_cat_title('', false); ?></li>
+              <li class="active">Arquivo: <?php echo $mes; ?></li>
             </ul>
           </div>
         </div>
