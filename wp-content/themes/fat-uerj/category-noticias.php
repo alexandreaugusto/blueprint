@@ -33,7 +33,7 @@ get_header(); ?>
               </a>
             </div>
             <div class="col-md-8">
-              <time class="text-uppercase" datetime="<?php the_date('Y-m-d H:i:s'); ?>"><span class="glyphicon glyphicon-calendar"></span> <?php the_date('j F, Y'); ?></time>
+              <time class="text-uppercase"><span class="glyphicon glyphicon-calendar"></span> <?php the_date('j F, Y'); ?></time>
               <h2><?php the_title(); ?></h2>
               <p><?php the_excerpt() ?></p>
               <a class="btn btn-primary" href="<?php the_permalink(); ?>" role="button">Ler mais</a>
