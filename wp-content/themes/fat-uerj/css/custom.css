@@ -35,11 +35,11 @@
 
 /* Dropdown */
 .navbar-nav>li>.dropdown-menu { border-top: 5px solid #007eb4; }
-.dropdown-header { text-transform: uppercase; line-height: 1.346; font-size: 14px; color: #007336; font-weight: 500; }
+.dropdown-header { text-transform: uppercase; line-height: 1.346; font-size: 14px; color: #007336; font-weight: 600; }
 .dropdown-header small { display: block; text-transform: capitalize; }
 .dropdown-menu { font-size: 13px; }
 .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-color: #e5f1ea; }
-
+.dropdown-header-small { text-transform: uppercase; padding: 3px 20px; }
 
 /* Featured */
 .jumbotron { position: relative; padding: 0; border: none;
@@ -95,8 +95,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007138', end
 /* Geral */
 .main { margin-bottom: 70px; }
 
+/* Font */
+h4 { font-weight: 600; color: #007138; }
+
 /* Cursos */
-.carousel-cursos h4 small { display: block; }
+.carousel-cursos h4 small { display: block; text-transform: uppercase; margin-top: 5px; font-weight: 600; }
 .carousel-cursos .carousel-control { width: 50px; height: 50px; text-shadow: none; top: -8px; opacity: 1; filter: alpha(opacity=100); }
 .carousel-cursos .carousel-control.left { left: inherit; right: 50px; }
 .carousel-cursos .carousel-control,
@@ -107,6 +110,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007138', end
 .carousel-cursos .carousel-indicators { position: inherit; bottom: 0; left: inherit; width: 100%; margin-left: 0; padding: 0; }
 .carousel-cursos .carousel-indicators li { border: 1px solid #333333; }
 .carousel-cursos .carousel-indicators .active { background-color: #666; }
+.carousel-cursos .carousel-inner>div>h4 { font-weight: normal; color: inherit; }
+
 
 /* Button */
 .btn-lg, .btn-group-lg > .btn { font-size: 16px; }
@@ -131,7 +136,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007138', end
 }
 .box-departamentos>div a { display: block; }
 .box-departamentos>div a:hover span { opacity: 0.9; }
-.box-departamentos>div div h4 { color: #ffffff; }
+.box-departamentos>div div h4 { color: #ffffff; font-weight: normal; }
 
 
 /* Sidebar */
@@ -179,7 +184,7 @@ footer small { display: block; }
 .main.internal.news > .row > .col-md-9 > .paginacao > .pagination { margin: 0; }
 .main.internal.news .entry-content>h1, .main.internal.news .entry-content>h2, .main.internal.news .entry-content>h3, .main.internal.news .entry-content>h4, .main.internal.news .entry-content>h5, .main.internal.news .entry-content>h6 { margin-bottom: 10px; margin-top: 20px; }
 
-.main.internal.news .entry-content img { margin-left: auto; margin-right: auto; display: block; max-width: 100%; height: auto; }
+.main.internal.news .entry-content img { margin-left: auto; margin-right: auto; display: block; max-width: 100%; height: auto; margin-top: 30px; margin-bottom: 30px; }
 .main.internal.news .entry-content .wp-caption { margin-right: auto; margin-left: auto; width: auto!important; max-width: 100%!important; margin-bottom: 20px; margin-top: 20px; text-align: center; }
 .main.internal.news .entry-content div.centered,.main.internal.news .entry-content div.alignnone { display: block; margin-left: auto; margin-right: auto; }
 .main.internal.news .entry-content div.alignleft { float: left; margin-right: 20px; margin-bottom: 20px; margin-top: 10px; }
@@ -188,6 +193,11 @@ footer small { display: block; }
 
 /* Departamentos */
 .main.internal.departamentos .well.col-md-12 { margin-top: 30px; }
+
+/* Boss */
+.well.col-md-12 .col-md-4 h4:nth-child(3),
+.professor.col-md-4 h4:nth-child(3) { font-weight: normal; color: inherit; text-transform: uppercase; }
+
 
 /* Icon */
 .share strong { margin-bottom: 10px; }
@@ -222,6 +232,8 @@ footer small { display: block; }
     .navbar-brand img { width: 190px; }
     .navbar-nav { font-size: 14px; }
     .departamentos>div { margin-top: 30px; }
+
+	.box-departamentos>div { margin-top: 30px; }
 
 }
 

@@ -132,7 +132,7 @@ get_header(); ?>
           </div>
         </div>
         <aside class="col-md-3">
-            <a href="http://www.vestibular.uerj.br" target="_blank" class="btn btn-primary btn-lg">Inscreva-se</a>
+            <a href="http://www.vestibular.uerj.br" target="_blank" class="btn btn-primary btn-lg">Saiba mais</a>
           
           <ul class="list-group">
             <li class="list-group-item">

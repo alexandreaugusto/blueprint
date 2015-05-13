@@ -86,7 +86,7 @@ get_header();
             <aside class="col-md-5">
               <address>
                 <strong>Faculdade de Tecnologia UERJ - Resende</strong><br>
-                Resende, RJ<br>
+                Rodovia Presidente Dutra km 298 (sentido RJ-SP) - Pólo Industrial Resende/RJ<br>
                 CEP: 27.537-000<br>
                 Tel: <a href="tel:(24) 3354-7851">(24) 3354-7851</a> / <a href="tel:(24) 3354-7875">(24) 3354-7875</a><br>
                 <a href="mailto:fat@uerj.br">fat@uerj.br</a>

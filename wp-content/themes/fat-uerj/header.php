@@ -21,10 +21,6 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
-    <!-- ShareThis -->
-    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-    <script type="text/javascript">stLight.options({publisher: "ur-a9642a8-c8e2-13c0-f3c2-77643cdbed44", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 
     <?php wp_head(); ?>
   </head>
@@ -49,10 +45,12 @@
 
           <form class="navbar-form navbar-right input-group hidden-xs" role="search">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="O que você procura?">
-              <span class="input-group-btn">
-                <button type="submit" class="btn btn-default">Buscar</button>
-              </span>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="O que você procura?">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-default">Buscar</button>
+                </span>
+              </div>
             </div>
           </form>
         </div>

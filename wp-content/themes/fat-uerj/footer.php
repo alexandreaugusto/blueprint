@@ -88,21 +88,23 @@ $menuitems = wp_get_nav_menu_items( 'footer_navigation', array( 'order' => 'DESC
                 </div>
                 <div class="col-md-5 col-sm-4 col-xs-8">
                     <h4>Faculdade de Tecnologia <small>Campus Regional de Resende</small></h4>
-                    <address>Rodovia Presidente Dutra km 298 (sentido RJ-SP) - Pólo Industrial Resende - RJ <br>Cep: 27.537-000 <br>Tel: (24) 3354-7851 / (24) 3354-7875</address>
+                    <address>Rodovia Presidente Dutra km 298 (sentido RJ-SP) - Pólo Industrial Resende/RJ <br>Cep: 27.537-000 <br>Tel: (24) 3354-7851 / (24) 3354-7875</address>
                     <a class="btn btn-default" role="button">Fale conosco</a>
                 </div>
                 <div class="col-md-5 col-sm-5 hidden-xs">
-                    <div class="pull-right share">
-                        <span class='st_facebook_large' displayText='Facebook'></span>
-                        <span class='st_twitter_large' displayText='Tweet'></span>
-                        <span class='st_googleplus_large' displayText='Google +'></span>
+                    <div class="pull-right share-default">
+                        <a href="#" class="btn btn-info"><span class="iconshare-twitter"></span></a>
+                        <a href="#" class="btn btn-primary"><span class="iconshare-facebook"></span></a>
+                        <a href="#" class="btn btn-danger"><span class="iconshare-gplus"></span></a>
                     </div>
                     <form class="navbar-form navbar-right input-group" role="search">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="O que você procura?">
-                      <span class="input-group-btn">
-                        <button type="submit" class="btn btn-default">Buscar</button>
-                      </span>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="O que você procura?">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-default">Buscar</button>
+                                </span>
+                            </div>
                         </div>
                     </form>
                 </div>
