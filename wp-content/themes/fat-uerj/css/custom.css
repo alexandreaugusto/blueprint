@@ -254,6 +254,8 @@ footer small { display: block; }
 	.carousel-control .icon-prev, .carousel-control .icon-next, .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right { top: 30%; }
 	.carousel-cursos .row > div+div { margin-top: 10px; padding-top: 10px; border-top: 1px solid #eeeeee; }
 
+	.box-departamentos>div img { height: 170px; max-height: 170px; }
+
 	footer .sitemap .row>div { margin-top: 30px; }
 	footer .sitemap .row>div:nth-child(1), footer .sitemap .row>div:nth-child(2) { margin-top: 0; }
 
