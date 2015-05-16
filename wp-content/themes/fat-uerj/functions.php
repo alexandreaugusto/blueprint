@@ -46,4 +46,17 @@ add_filter('excerpt_more', 'new_excerpt_more');
 
 include_once('fields.php');
 
+
+
+/*
+ * Modify TinyMCE editor to remove H1.
+ */
+function tiny_mce_remove_unused_formats($init) {
+	// Add block format elements you want to show in dropdown
+	$init['block_formats'] = 'Paragraph=p;Heading Green=h4;Address=address;Pre=pre';
+	return $init;
+}
+add_filter('tiny_mce_before_init', 'tiny_mce_remove_unused_formats' );
+
+
 ?>
