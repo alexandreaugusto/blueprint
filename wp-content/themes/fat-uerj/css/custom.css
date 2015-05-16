@@ -235,6 +235,8 @@ footer small { display: block; }
 
 	.box-departamentos>div { margin-top: 30px; }
 
+	.professor.col-md-4, .disciplinas.col-md-8 { margin-bottom: 30px; }
+
 }
 
 /* Mobile */
@@ -251,7 +253,6 @@ footer small { display: block; }
 	.carousel-cursos > .row > div:nth-child(2) > .carousel-control { top: -20px; }
 	.carousel-control .icon-prev, .carousel-control .icon-next, .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right { top: 30%; }
 	.carousel-cursos .row > div+div { margin-top: 10px; padding-top: 10px; border-top: 1px solid #eeeeee; }
-
 
 	footer .sitemap .row>div { margin-top: 30px; }
 	footer .sitemap .row>div:nth-child(1), footer .sitemap .row>div:nth-child(2) { margin-top: 0; }
