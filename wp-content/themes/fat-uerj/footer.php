@@ -89,7 +89,7 @@ $menuitems = wp_get_nav_menu_items( 'footer_navigation', array( 'order' => 'DESC
                 <div class="col-md-5 col-sm-4 col-xs-8">
                     <h4>Faculdade de Tecnologia <small>Campus Regional de Resende</small></h4>
                     <address>Rodovia Presidente Dutra km 298 (sentido RJ-SP) - Pólo Industrial Resende/RJ <br>Cep: 27.537-000 <br>Tel: (24) 3354-7851 / (24) 3354-7875</address>
-                    <a class="btn btn-default" role="button">Fale conosco</a>
+                    <a href="<?php bloginfo('url'); ?>/contato/" class="btn btn-default" role="button">Fale conosco</a>
                 </div>
                 <div class="col-md-5 col-sm-5 hidden-xs">
                     <div class="pull-right share-default">
