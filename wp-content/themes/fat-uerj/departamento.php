@@ -31,7 +31,7 @@ get_header();
                 <div class="row">
                     <div class="col-md-12">
                         <h2 class="text-uppercase page-header"><?php the_title(); ?></h2>
-                        <p><?php echo preg_replace('/class=".*?"/', 'class="img-rounded"', get_the_post_thumbnail(get_the_ID(), 'medium')); ?></p>
+                        <p><?php echo preg_replace('/class=".*?"/', 'class="img-rounded"', get_the_post_thumbnail(get_the_ID(), 'medium', array('alt' => trim(strip_tags(get_the_title()))))); ?></p>
                         <?php
                             the_content();
                             $chefe = get_field('chefe');
