@@ -29,7 +29,7 @@ get_header();
                     <div class="row">
                         <div class="col-md-12">
                             <h2 class="text-uppercase page-header"><?php the_title() ?></h2>
-                            <p><?php echo preg_replace('/class=".*?"/', 'class="img-rounded"', get_the_post_thumbnail(get_the_ID(), 'full', array('alt' => trim(strip_tags(get_the_title()))))); ?></p>
+                            <p><?php echo preg_replace('/class=".*?"/', 'class="img-rounded"', get_the_post_thumbnail(get_the_ID(), 'large', array('alt' => trim(strip_tags(get_the_title()))))); ?></p>
                             <?php the_content() ?>
                         </div>
                     </div>
