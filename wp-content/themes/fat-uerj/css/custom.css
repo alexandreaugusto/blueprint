@@ -192,6 +192,11 @@ footer small { display: block; }
 .main.internal.news .entry-content div.alignright { float: right; margin-left: 20px; margin-bottom: 20px; margin-top: 10px; }
 .main.internal.news .entry-content .wp-caption>.wp-caption-text { padding: 10px 8px 0 8px; margin-bottom: 0 !important; font-style: italic; font-size: 12px; }
 
+/* Categorias */
+.main.internal.categoria > .row .col-md-3 { margin-top: 40px; }
+.main.internal.categoria > .row > .col-md-12 > .paginacao { margin-top: 40px; text-align: right; }
+.main.internal.categoria > .row > .col-md-12 > .paginacao > .pagination { margin: 0; }
+
 /* Departamentos */
 .main.internal.departamentos .well.col-md-12 { margin-top: 30px; }
 
@@ -220,7 +225,7 @@ footer small { display: block; }
 .navbar-toggle { margin-top: 15px; margin-bottom: 15px; }
 
 /* Search */
-.main.internal.news.search-page .navbar-form div .form-control { width: 100%; }
+.main.internal.news.search-page .navbar-form div .form-control, .main.internal.categoria .navbar-form div .form-control { width: 100%; }
 
 
 /* Tablet */
