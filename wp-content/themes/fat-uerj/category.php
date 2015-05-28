@@ -26,8 +26,8 @@ get_header(); ?>
       <div class="row">
         <div class="col-md-12">
           <?php
-            if ( have_posts() ) : ?>
-          <div class="row">
+            if ( have_posts() ) : $cont = 0; ?>
+          <?php if($cont%4 == 0): ?><div class="row"><?php endif; ?>
           <?php
             while ( have_posts() ) : the_post(); ?>
             <div class="col-md-3">
@@ -38,10 +38,10 @@ get_header(); ?>
           <?php
             endwhile; // End Loop
           ?>
-          </div>   
+          <?php if($cont++%4 == 0): ?></div><?php endif; ?>
           <?php            
             global $wp_query;
-            if($wp_query->found_posts > 10):
+            if($wp_query->found_posts > 8):
           ?>
           <div class="paginacao">
             <ul class="pagination pagination-lg">
