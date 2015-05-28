@@ -54,7 +54,7 @@ get_header(); ?>
           <div class="paginacao">
             <ul class="pagination pagination-lg">
               <li><?php previous_posts_link('&laquo;', 0); ?></li>
-              <?php for($c = 1;$c < $wp_query->max_num_pages; $c++): ?>
+              <?php for($c = 1;$c <= $wp_query->max_num_pages; $c++): ?>
               <li<?php if($c == $page): ?> class="active"<?php endif; ?>><a href="<?php echo esc_url( $category_link ) . "/page/" . $c; ?>"><?php echo $c; ?></a></li>
               <?php endfor; ?>
               <li><?php next_posts_link('&raquo;', 0); ?></li>
