@@ -27,6 +27,18 @@ get_header(); ?>
     $category_link = get_category_link($category_id);
     
     $page = get_query_var('paged');
+    if(!empty($page)) {
+        global $wp_query;
+        query_posts(
+                array_merge(
+                        array(
+                        'posts_per_page' => 8,
+                        'paged' => $page
+                         ),
+                        $wp_query->query
+                )
+        );
+    }
     
     ?>
     <div class="container main internal categoria">
