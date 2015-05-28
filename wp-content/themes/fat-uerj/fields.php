@@ -192,12 +192,10 @@ function show_files_discipline_in_course_meta_box() {
         ));
         if ($query->found_posts > 0):
 
-            echo "<tr><td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;&raquo; ";
             $i = 1;
             while ($query->have_posts()) :
                 $query->the_post();
-                if(get_the_title() == "Probabilidade e Estatística")
-                    echo $i;
+                echo "<tr><td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;&raquo; ";
                 echo get_the_title() . "</td></tr>";
                 $attachments = get_posts(
                         array('post_type' => 'attachment', 'posts_per_page' => -1,
