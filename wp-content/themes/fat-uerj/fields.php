@@ -178,7 +178,7 @@ function show_files_discipline_in_course_meta_box() {
             break;
 
         echo "<tr>";
-        echo "<th colspan='2'>&raquo;" . $categoria->cat_name . "</th>";
+        echo "<th colspan='2'>&raquo; " . $categoria->cat_name . "</th>";
         echo "</tr>";
 
         $query = new WP_Query(array(
@@ -192,7 +192,7 @@ function show_files_discipline_in_course_meta_box() {
         ));
         if ($query->found_posts > 0):
 
-            echo "<tr><td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;";
+            echo "<tr><td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;&raquo; ";
             $i = 1;
             while ($query->have_posts()) :
                 $query->the_post();
@@ -205,14 +205,13 @@ function show_files_discipline_in_course_meta_box() {
                     foreach ($attachments as $attachment):
                         echo "<tr>";
                         echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-                        echo "<a href='" . wp_get_attachment_url($attachment->ID) . "''>" . $attachment->post_title . "</a>";
+                        echo "<a href='" . wp_get_attachment_url($attachment->ID) . "'>" . $attachment->post_title . "</a>";
                         echo "</td>";
                         echo "<td>&nbsp;</td>";
                         echo "</tr>";
                     endforeach;
                 endif;
             endwhile;
-            echo "</td></tr>";
         endif;
         wp_reset_postdata();
         $cont++;
