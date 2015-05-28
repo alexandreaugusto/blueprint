@@ -50,7 +50,7 @@ get_header(); ?>
             <?php $coordenador = get_field('cso_coordenacao'); ?>
             <div class="professor col-md-4">
               <h4 class="text-uppercase">Coordenação</h4>
-              <?php echo (empty(get_the_author_meta('foto', $coordenador['ID'])))?"noone.jpg":get_the_author_meta('foto', $coordenador['ID']); ?>
+              <?php print_r(empty(get_the_author_meta('foto', $coordenador['ID'])))?"noone.jpg":get_the_author_meta('foto', $coordenador['ID']); ?>
               <h4><?php echo $coordenador['user_firstname'] . " " . $coordenador['user_lastname']; ?></h4>
               <p><?php echo $coordenador['user_description']; ?></p>
               <a href="<?php echo get_the_author_meta('usr_lattes', $coordenador['ID']); ?>">Currículo Lattes</a>
