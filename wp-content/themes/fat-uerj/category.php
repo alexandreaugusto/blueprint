@@ -27,19 +27,18 @@ get_header(); ?>
         <div class="col-md-12">
           <?php
             if ( have_posts() ) : $cont = 0; ?>
-          <?php if($cont%4 == 0): ?><div class="row"><?php endif; ?>
           <?php
             while ( have_posts() ) : the_post(); ?>
+          <?php if($cont%4 == 0): ?><div class="row"><?php endif; ?>
             <div class="col-md-3">
               <h2><?php the_title(); ?></h2>
               <p><?php the_excerpt() ?></p>
               <a class="btn btn-primary" href="<?php the_permalink(); ?>" role="button">Saiba mais</a>
             </div>
+          <?php if($cont++%4 == 0): ?></div><?php endif; ?>
           <?php
             endwhile; // End Loop
-          ?>
-          <?php if($cont++%4 == 0): ?></div><?php endif; ?>
-          <?php            
+            
             global $wp_query;
             if($wp_query->found_posts > 8):
           ?>
