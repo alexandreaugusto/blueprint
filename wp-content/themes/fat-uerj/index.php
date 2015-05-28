@@ -126,10 +126,15 @@ get_header(); ?>
                         <div id="carousel-extensao" class="carousel slide" data-ride="carousel">
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
+                                <?php
+                                    $ext = new WP_Query('pagename=extensao');
+                                    while($ext->have_posts()):$ext->the_post();
+                                ?>
                                 <div class="item active">
-                                    <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork irony iphone skateboard locavore before they sold out mcsweeney bag gentrify.</p>
-                                    <p><a class="btn btn-primary" role="button">Saiba mais</a></p>
+                                    <p><?php the_excerpt() ?></p>
+                                    <p><a class="btn btn-primary" href="<?php the_permalink() ?>" role="button">Saiba mais</a></p>
                                 </div>
+                                <?php endwhile; ?>
                             </div>
                         </div>
                     </div>

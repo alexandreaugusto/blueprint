@@ -58,24 +58,4 @@ function tiny_mce_remove_unused_formats($init) {
 }
 add_filter('tiny_mce_before_init', 'tiny_mce_remove_unused_formats' );
 
-/*add_filter('request', 'fat_uerj_request');
-function fat_uerj_request($query_string )
-{
-    if( isset( $query_string['page'] ) ) {
-        if( ''!=$query_string['page'] ) {
-            if( isset( $query_string['name'] ) ) {
-                unset( $query_string['name'] );
-            }
-        }
-    }
-    return $query_string;
- }
- 
-add_action('pre_get_posts','fat_uerj_pre_get_posts');
-function fat_uerj_pre_get_posts( $query ) { 
-    if( $query->is_main_query() && !$query->is_feed() && !is_admin() ) { 
-        $query->set( 'paged', str_replace( '/', '', get_query_var( 'page' ) ) ); 
-    } 
-}*/
-
 ?>
