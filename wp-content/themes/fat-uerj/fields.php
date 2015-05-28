@@ -207,7 +207,7 @@ function show_files_discipline_in_course_meta_box() {
                         echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
                         echo "<a href='" . wp_get_attachment_url($attachment->ID) . "'>" . $attachment->post_title . "</a>";
                         echo "</td>";
-                        echo "<td>&nbsp;</td>";
+                        echo "<td><a class=\"button edit-attachment\" href=\"#\">Editar imagem</a></td>";
                         echo "</tr>";
                     endforeach;
                 endif;
