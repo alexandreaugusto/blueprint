@@ -26,7 +26,7 @@ get_header(); ?>
     $category_id = get_cat_ID(single_cat_title('', false));
     $category_link = get_category_link($category_id);
     
-    $page = get_query_var('paged');
+    $page = get_query_var('page');
     if(!empty($page))
         query_posts("posts_per_page=8&paged=".$page);
     
@@ -75,6 +75,7 @@ get_header(); ?>
             </form>
           </div>
           <?php endif; ?>
+          <?php wp_reset_query(); ?>
         </div>
       </div>
     </div>
