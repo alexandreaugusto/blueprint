@@ -22,18 +22,18 @@ get_header(); ?>
     </div>
 <?php endif; ?>
     
-    <div class="container main internal news">
+    <div class="container main internal categoria">
       <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
           <?php
             if ( have_posts() ) : ?>
           <?php
             while ( have_posts() ) : the_post(); ?>
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-3">
               <h2><?php the_title(); ?></h2>
               <p><?php the_excerpt() ?></p>
-              <a class="btn btn-primary" href="<?php the_permalink(); ?>" role="button">Veja mais</a>
+              <a class="btn btn-primary" href="<?php the_permalink(); ?>" role="button">Saiba mais</a>
             </div>
           </div>
           <?php
@@ -53,10 +53,17 @@ get_header(); ?>
           </div>
             <?php endif; ?>
           <?php else: ?>
+          <h2>Não há posts na categoria &quot;<?php echo single_cat_title('', false); ?>&quot; por enquanto...</h2>
+          <p>Tente utilizar o sistema de busca.</p>
           <div class="row">
-            <div class="col-md-12">
-              <p>Não há posts na categoria &quot;<?php echo single_cat_title('', false); ?>&quot; por enquanto...</p>
-            </div>
+            <form class="navbar-form" role="search">
+              <div class="col-md-10 col-sm-10 col-xs-9">
+                <input type="text" class="form-control" placeholder="O que você procura?">
+              </div>
+              <div class="col-md-2 col-sm-2 col-xs-3">
+                <button type="submit" class="btn btn-default btn-block">Buscar</button>
+              </div>
+            </form>
           </div>
           <?php endif; ?>
         </div>
