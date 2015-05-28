@@ -162,10 +162,8 @@ function show_files_discipline_in_course_meta_box() {
     global $post;
     
     echo '<input type="hidden" name="custom_course_box_nonce" value="' . wp_create_nonce(basename(__FILE__)) . '" />';
-    // Begin the field table and loop  
-    echo '<table class="form-table">';
-    echo '<tr>';
-    echo '<td>';
+
+    echo '<ul>';
     
     
     $categorias = get_categories(array('type' => 'disciplina', 'orderby' => 'id', 'order' => 'ASC',
@@ -226,14 +224,13 @@ function show_files_discipline_in_course_meta_box() {
             endwhile;
             echo "</ul>";
         endif;
+        echo '</li>';
         wp_reset_postdata();
         $cont++;
     endforeach;
     
-    echo '</td>';
-    echo '</tr>';
+    echo '</ul>';
 
-    echo '</table>'; // end table
 }
 
 function add_files_discipline_in_course_meta_box() {
