@@ -63,7 +63,7 @@ get_header(); ?>
           </div>
           <?php endif; ?>
         </div>
-        <?php get_sidebar(); ?>
+        <?php get_sidebar('noticias'); ?>
       </div>
     </div>
 
