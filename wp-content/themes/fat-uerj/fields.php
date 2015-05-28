@@ -161,7 +161,7 @@ function restrict_manage_posts_disciplina() {
 function show_files_discipline_in_course_meta_box() {
     global $post;
     
-    echo '<input type="hidden" name="custom_course_box_nonce" value="' . wp_create_nonce(basename(__FILE__)) . '" />\r\n';
+    echo '<input type="hidden" name="custom_course_box_nonce" value="' . wp_create_nonce(basename(__FILE__)) . '" />';
     // Begin the field table and loop  
     echo '<table class="form-table">\r\n';
     
@@ -218,7 +218,7 @@ function show_files_discipline_in_course_meta_box() {
                         $cont++;
                     endforeach;
     
-    echo '</table>\r\n'; // end table
+    echo '</table>'; // end table
 }
 
 function add_files_discipline_in_course_meta_box() {
@@ -228,7 +228,7 @@ function add_files_discipline_in_course_meta_box() {
             'show_files_discipline_in_course_meta_box', // $callback  
             'curso', // $page  
             'normal', // $context  
-            'high'); // $priority  
+            'low'); // $priority  
 }
 
 add_action('add_meta_boxes', 'add_files_discipline_in_course_meta_box');
