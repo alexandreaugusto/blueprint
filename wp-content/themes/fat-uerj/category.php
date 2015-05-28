@@ -27,8 +27,6 @@ get_header(); ?>
     $category_link = get_category_link($category_id);
     
     $page = get_query_var('paged');
-    if(!empty($page))
-        query_posts("cat=".$category_id."&posts_per_page=8&paged=".$page);
     
     ?>
     <div class="container main internal categoria">
