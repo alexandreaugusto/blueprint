@@ -166,57 +166,68 @@ function show_files_discipline_in_course_meta_box() {
     echo '<table class="form-table">';
     
     
-                    $categorias = get_categories(array('type' => 'disciplina', 'orderby' => 'id', 'order' => 'ASC',
-                        'taxonomy' => 'tipo-disciplina', 'hide_empty' => 0));
-                    $cont = 1;
-                    $idCurso = $post->ID;
-                    $catCont = 0;
-                    $duracao = get_field('cso_duracao');
-                    
-                    foreach ($categorias as $categoria) :
-                        if($catCont++ >= $duracao)
-                            break;
+    $categorias = get_categories(array('type' => 'disciplina', 'orderby' => 'id', 'order' => 'ASC',
+        'taxonomy' => 'tipo-disciplina', 'hide_empty' => 0));
+    $cont = 1;
+    $idCurso = $post->ID;
+    $catCont = 0;
+    $duracao = get_field('cso_duracao');
 
-                    echo "<tr>";
-                        echo "<th colspan='2'>" . $categoria->cat_name . "</th>";
-                    echo "</tr>";
+    foreach ($categorias as $categoria) :
+        if ($catCont++ >= $duracao)
+            break;
 
-                        $query = new WP_Query(array(
-                            'tipo-disciplina' => $categoria->slug,
-                            'post_type' => 'disciplina',
-                            'orderby' => 'title',
-                            'order' => 'ASC',
-                            'posts_per_page' => -1,
-                            'meta_key' => 'curso_disciplina',
-                            'meta_value' => $idCurso
-                        ));
-                        if($query->found_posts > 0):
+        echo "<li>";
+        echo $categoria->cat_name;
 
-                        echo "<tr><td colspan='2'>";
-                        $i = 1;
-                        while ($query->have_posts()) :
-                            $query->the_post();
-                                    echo get_the_title() . "</td></tr>";
-                                    $attachments = get_posts(
-                                            array('post_type' => 'attachment', 'posts_per_page' => -1,
-                                                'post_status' => 'any', 'post_parent' => null,
-                                                'meta_key' => 'arquivo_disciplina', 'meta_value' => get_the_ID()));
-                                    if ($attachments):
-                                        foreach ( $attachments as $attachment ):
-                                echo "<tr>";
-                                    echo "<td>";
-                                        echo "<a href='" . wp_get_attachment_url($attachment->ID) . "''>" . $attachment->post_title . "</a>";
-                                    echo "</td>";
-                                    echo "<td>&nbsp;</td>";
-                                echo "</tr>";
-                                        endforeach;
-                                    endif;
-                        endwhile;
-                        endif;
-                        wp_reset_postdata();
-                        $cont++;
+        $query = new WP_Query(array(
+            'tipo-disciplina' => $categoria->slug,
+            'post_type' => 'disciplina',
+            'orderby' => 'title',
+            'order' => 'ASC',
+            'posts_per_page' => -1,
+            'meta_key' => 'curso_disciplina',
+            'meta_value' => $idCurso
+        ));
+        if ($query->found_posts > 0):
+
+            echo "<ul>";
+
+            $i = 1;
+            while ($query->have_posts()) :
+                $query->the_post();
+
+                echo "<li>";
+
+                echo get_the_title();
+                $attachments = get_posts(
+                        array('post_type' => 'attachment', 'posts_per_page' => -1,
+                            'post_status' => 'any', 'post_parent' => null,
+                            'meta_key' => 'arquivo_disciplina', 'meta_value' => get_the_ID()));
+                if ($attachments):
+
+                    echo "<ul>";
+
+                    foreach ($attachments as $attachment):
+
+                        echo "<li>";
+                        echo "<a href='" . wp_get_attachment_url($attachment->ID) . "'>" . $attachment->post_title . "</a>";
+                        echo "</li>";
+
                     endforeach;
-    
+
+                    echo "</ul>";
+
+                endif;
+
+                echo "</li>";
+            endwhile;
+            echo "</ul>";
+        endif;
+        wp_reset_postdata();
+        $cont++;
+    endforeach;
+
     echo '</table>'; // end table
 }
 
