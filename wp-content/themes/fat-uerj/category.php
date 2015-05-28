@@ -26,9 +26,9 @@ get_header(); ?>
     $category_id = get_cat_ID(single_cat_title('', false));
     $category_link = get_category_link($category_id);
     
-    $page = get_query_var('page');
+    $page = get_query_var('paged');
     if(!empty($page))
-        query_posts("posts_per_page=8&paged=".$page);
+        query_posts("cat=".$category_id."&posts_per_page=8&paged=".$page);
     
     ?>
     <div class="container main internal categoria">
@@ -55,7 +55,7 @@ get_header(); ?>
             <ul class="pagination pagination-lg">
               <li><?php previous_posts_link('&laquo;', 0); ?></li>
               <?php for($c = 1;$c <= $wp_query->max_num_pages; $c++): ?>
-              <li<?php if($c == $page): ?> class="active"<?php endif; ?>><a href="<?php echo esc_url( $category_link ) . "/page/" . $c; ?>"><?php echo $c; ?></a></li>
+              <li<?php if($c == $page): ?> class="active"<?php endif; ?>><a href="<?php echo esc_url( $category_link ) . "page/" . $c; ?>"><?php echo $c; ?></a></li>
               <?php endfor; ?>
               <li><?php next_posts_link('&raquo;', 0); ?></li>
             </ul>
