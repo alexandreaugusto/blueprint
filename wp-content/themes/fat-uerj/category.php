@@ -27,18 +27,19 @@ get_header(); ?>
         <div class="col-md-12">
           <?php
             if ( have_posts() ) : ?>
+          <div class="row">
           <?php
             while ( have_posts() ) : the_post(); ?>
-          <div class="row">
             <div class="col-md-3">
               <h2><?php the_title(); ?></h2>
               <p><?php the_excerpt() ?></p>
               <a class="btn btn-primary" href="<?php the_permalink(); ?>" role="button">Saiba mais</a>
             </div>
-          </div>
           <?php
             endwhile; // End Loop
-            
+          ?>
+          </div>   
+          <?php            
             global $wp_query;
             if($wp_query->found_posts > 10):
           ?>
