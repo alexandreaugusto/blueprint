@@ -160,12 +160,12 @@ function restrict_manage_posts_disciplina() {
 
 function show_files_discipline_in_course_meta_box() {
     global $post;
-    
-    echo '<input type="hidden" name="custom_course_box_nonce" value="' . wp_create_nonce(basename(__FILE__)) . '" />';
 
-    echo '<ul>';
-    
-    
+    echo '<input type="hidden" name="custom_course_box_nonce" value="' . wp_create_nonce(basename(__FILE__)) . '" />';
+    // Begin the field table and loop  
+    echo '<table class="form-table">';
+
+
     $categorias = get_categories(array('type' => 'disciplina', 'orderby' => 'id', 'order' => 'ASC',
         'taxonomy' => 'tipo-disciplina', 'hide_empty' => 0));
     $cont = 1;
@@ -177,8 +177,9 @@ function show_files_discipline_in_course_meta_box() {
         if ($catCont++ >= $duracao)
             break;
 
-        echo "<li>";
-        echo $categoria->cat_name;
+        echo "<tr>";
+        echo "<th colspan='2'>" . $categoria->cat_name . "</th>";
+        echo "</tr>";
 
         $query = new WP_Query(array(
             'tipo-disciplina' => $categoria->slug,
@@ -191,46 +192,33 @@ function show_files_discipline_in_course_meta_box() {
         ));
         if ($query->found_posts > 0):
 
-            echo "<ul>";
-
+            echo "<tr><td colspan='2'>";
             $i = 1;
             while ($query->have_posts()) :
                 $query->the_post();
-
-                echo "<li>";
-
-                echo get_the_title();
+                echo get_the_title() . "</td></tr>";
                 $attachments = get_posts(
                         array('post_type' => 'attachment', 'posts_per_page' => -1,
                             'post_status' => 'any', 'post_parent' => null,
                             'meta_key' => 'arquivo_disciplina', 'meta_value' => get_the_ID()));
                 if ($attachments):
-
-                    echo "<ul>";
-
                     foreach ($attachments as $attachment):
-
-                        echo "<li>";
-                        echo "<a href='" . wp_get_attachment_url($attachment->ID) . "'>" . $attachment->post_title . "</a>";
-                        echo "</li>";
-
+                        echo "<tr>";
+                        echo "<td>";
+                        echo "<a href='" . wp_get_attachment_url($attachment->ID) . "''>" . $attachment->post_title . "</a>";
+                        echo "</td>";
+                        echo "<td>&nbsp;</td>";
+                        echo "</tr>";
                     endforeach;
-
-                    echo "</ul>";
-
                 endif;
-
-                echo "</li>";
             endwhile;
-            echo "</ul>";
+            echo "</td></tr>";
         endif;
-        echo '</li>';
         wp_reset_postdata();
         $cont++;
     endforeach;
-    
-    echo '</ul>';
 
+    echo '</table>'; // end table
 }
 
 function add_files_discipline_in_course_meta_box() {
