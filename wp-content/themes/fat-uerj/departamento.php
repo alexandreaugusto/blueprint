@@ -41,10 +41,10 @@ get_header();
                         <div class="well col-md-12">
                             <div class="col-md-4">
                                 <h4 class="text-uppercase">Chefe</h4>
-                                    <img src="<?php echo (empty(get_the_author_meta('foto', $chefe['ID'])))?get_template_directory_uri() . "/img/noone.jpg":wp_get_attachment_url(get_the_author_meta('foto', $chefe['ID'])); ?>" width="96" height="96">
-                                    <h4><?php echo $chefe['user_firstname'] . " " . $chefe['user_lastname']; ?></h4>
-                                    <p><?php echo $chefe['user_firstname'] . " " . $chefe['user_description']; ?></p>
-                                    <a href="<?php echo get_the_author_meta('usr_lattes', $chefe['ID']); ?>">Currículo Lattes</a>
+                                <img src="<?php echo (empty(get_the_author_meta('foto', $chefe['ID'])))?get_template_directory_uri() . "/img/noone.jpg":wp_get_attachment_url(get_the_author_meta('foto', $chefe['ID'])); ?>" width="96" height="96">
+                                <h4><?php echo $chefe['user_firstname'] . " " . $chefe['user_lastname']; ?></h4>
+                                <p><?php echo $chefe['user_firstname'] . " " . $chefe['user_description']; ?></p>
+                                <a href="<?php echo get_the_author_meta('usr_lattes', $chefe['ID']); ?>">Currículo Lattes</a>
                             </div>
                             <div class="col-md-4">
                                 <h4 class="text-uppercase">Subchefe</h4>
