@@ -41,21 +41,21 @@ get_header();
                         <div class="well col-md-12">
                             <div class="col-md-4">
                                 <h4 class="text-uppercase">Chefe</h4>
-                                    <?php echo $chefe['user_avatar']; ?>
+                                    <img src="<?php echo (empty(get_the_author_meta('foto', $chefe['ID'])))?get_template_directory_uri() . "/img/noone.jpg":wp_get_attachment_url(get_the_author_meta('foto', $chefe['ID'])); ?>">
                                     <h4><?php echo $chefe['user_firstname'] . " " . $chefe['user_lastname']; ?></h4>
                                     <p><?php echo $chefe['user_firstname'] . " " . $chefe['user_description']; ?></p>
                                     <a href="<?php echo get_the_author_meta('usr_lattes', $chefe['ID']); ?>">Currículo Lattes</a>
                             </div>
                             <div class="col-md-4">
                                 <h4 class="text-uppercase">Subchefe</h4>
-                                <?php echo $subchefe['user_avatar']; ?>
+                                <img src="<?php echo (empty(get_the_author_meta('foto', $subchefe['ID'])))?get_template_directory_uri() . "/img/noone.jpg":wp_get_attachment_url(get_the_author_meta('foto', $subchefe['ID'])); ?>">
                                 <h4><?php echo $subchefe['user_firstname'] . " " . $subchefe['user_lastname']; ?></h4>
                                 <p><?php echo $subchefe['user_firstname'] . " " . $subchefe['user_description']; ?></p>
                                 <a href="<?php echo get_the_author_meta('usr_lattes', $subchefe['ID']); ?>">Currículo Lattes</a>
                             </div>
                             <div class="col-md-4">
                                 <h4 class="text-uppercase">Coordenador</h4>
-                                <?php echo $coordenador['user_avatar']; ?>
+                                <img src="<?php echo (empty(get_the_author_meta('foto', $coordenador['ID'])))?get_template_directory_uri() . "/img/noone.jpg":wp_get_attachment_url(get_the_author_meta('foto', $coordenador['ID'])); ?>">
                                 <h4><?php echo $coordenador['user_firstname'] . " " . $coordenador['user_lastname']; ?></h4>
                                 <p><?php echo $coordenador['user_firstname'] . " " . $coordenador['user_description']; ?></p>
                                 <a href="<?php echo get_the_author_meta('usr_lattes', $coordenador['ID']); ?>">Currículo Lattes</a>
