@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Pesquisa
+ * Template Name: CRR
  * @package WordPress
  * @subpackage fat-uerj
  * @since FAT-UERJ 1.0

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Instalações
+ * Template Name: Pesquisa
  * @package WordPress
  * @subpackage fat-uerj
  * @since FAT-UERJ 1.0
