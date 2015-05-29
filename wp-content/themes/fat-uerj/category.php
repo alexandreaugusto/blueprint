@@ -54,7 +54,7 @@ get_header(); ?>
               <p><?php the_excerpt() ?></p>
               <a class="btn btn-primary" href="<?php the_permalink(); ?>" role="button">Saiba mais</a>
             </div>
-          <?php if($cont%4 == 0): ?></div><?php endif; ?>
+          <?php if($cont%4 == 0 || ($cont+1) == count(get_posts())): ?></div><?php endif; ?>
           <?php
             endwhile; // End Loop
             

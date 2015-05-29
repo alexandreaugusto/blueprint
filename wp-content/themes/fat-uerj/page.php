@@ -15,7 +15,7 @@ get_header();
                         <h3 class="text-uppercase"><?php echo $titulo[0]; ?></h3>
                         <ul class="breadcrumb">
                             <li><a href="<?php bloginfo("url") ?>">Home</a></li>
-                            <li><a href="<?php //echo esc_url(get_category_link(get_cat_ID('Instalações'))); ?>">Nada</a></li>
+                            <?php if(single_cat_title('', false)): ?><li><a href="<?php echo esc_url(get_category_link(get_cat_ID(single_cat_title('', false)))); ?>"><?php echo single_cat_title('', false) ?></a></li><?php endif; ?>
                             <li class="active"><?php the_title() ?></li>
                         </ul>
                     </div>
