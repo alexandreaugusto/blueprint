@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Instalações
+ * Template Name: Pesquisa
  * @package WordPress
  * @subpackage fat-uerj
  * @since FAT-UERJ 1.0
@@ -35,7 +35,7 @@ get_header();
                         </div>
                     </div>
                 </div>
-                <?php get_sidebar('instalacoes'); ?>
+                <?php get_sidebar('pesquisa'); ?>
             </div>
         </div>
     <?php endwhile; ?>
