@@ -38,7 +38,7 @@ function wpt_remove_version() {
 add_filter('the_generator', 'wpt_remove_version');
 
 function custom_excerpt_length( $length ) {
-	return 25;
+	return 30;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
