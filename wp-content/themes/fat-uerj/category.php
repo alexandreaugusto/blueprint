@@ -27,7 +27,7 @@ get_header(); ?>
     $category_link = get_category_link($category_id);
     
     $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
-    $category = &new WP_Query("cat=" . $category_id . "&showposts=8&paged=" . $page);
+    $category = &new WP_Query("showposts=8&paged=" . $page);
     
     ?>
     <div class="container main internal categoria">
