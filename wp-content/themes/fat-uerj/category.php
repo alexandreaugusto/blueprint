@@ -34,16 +34,17 @@ get_header(); ?>
       <div class="row">
         <div class="col-md-12">
           <?php
-            if ( $category->have_posts() ) : $category->the_post(); $cont = 0; ?>
+            if ( $category->have_posts() ) : $cont = 0; ?>
           <?php
-            while ( have_posts() ) : the_post(); ?>
+            while ( $category->have_posts() ) : $category->the_post(); ?>
           <?php if($cont++%4 == 0): ?><div class="row"><?php endif; ?>
             <div class="col-md-3">
               <h2><?php the_title(); ?></h2>
               <p><?php the_excerpt() ?></p>
-              <a class="btn btn-primary" href="<?php the_permalink(); ?>" role="button">Saiba mais</a>
+              <a class="btn btn-primary" href="<?php the_permalink(); ?>" role="button"><?php echo $category->found_posts ?> Saiba mais</a>
             </div>
           <?php if($cont%4 == 0): ?></div><?php endif; ?>
+          <?php if($cont < 8 && ($cont + 1) == $category->found_posts): ?></div><?php endif; ?>
           <?php
             endwhile; // End Loop
             
