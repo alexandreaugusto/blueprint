@@ -77,4 +77,12 @@ function tiny_mce_remove_unused_formats($init) {
 }
 add_filter('tiny_mce_before_init', 'tiny_mce_remove_unused_formats' );
 
+function show_template() {
+    if( is_super_admin() ){
+        global $template;
+        print_r($template);
+    } 
+}
+add_action('wp_footer', 'show_template');
+
 ?>
