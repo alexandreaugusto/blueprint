@@ -7,6 +7,21 @@
 
 require_once('wp-bootstrap-navwalker-master/wp_bootstrap_navwalker.php');
 
+function my_login_logo() { ?>
+    <style type="text/css">
+        .login h1 a {
+            background-image: url(<?php echo get_template_directory_uri(); ?>/img/logo.png);
+			background-size: 354px 94px;
+            padding-bottom: 30px;
+			width: 354px;
+			height: 94px;
+			margin: 0 auto;
+			margin-left: -15px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
 function fat_uerj_name_scripts() {
     wp_enqueue_style('jstree-css', get_template_directory_uri() . '/css/jstree-default.min.css');
     wp_enqueue_script('jstree', get_template_directory_uri() . '/js/jstree.min.js', array('jquery'), '1.0.0', false);
