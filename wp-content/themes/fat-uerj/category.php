@@ -41,10 +41,10 @@ get_header(); ?>
             <div class="col-md-3">
               <h2><?php the_title(); ?></h2>
               <p><?php the_excerpt() ?></p>
-              <a class="btn btn-primary" href="<?php the_permalink(); ?>" role="button"><?php echo $category->found_posts ?> Saiba mais</a>
+              <a class="btn btn-primary" href="<?php the_permalink(); ?>" role="button"><?php echo $category->post_count; ?> Saiba mais</a>
             </div>
           <?php if($cont%4 == 0): ?></div><?php endif; ?>
-          <?php if($cont < 8 && ($cont + 1) == $category->found_posts): ?></div><?php endif; ?>
+          <?php if($cont < 8 && ($cont + 1) == $category->post_count): ?></div><?php endif; ?>
           <?php
             endwhile; // End Loop
             
