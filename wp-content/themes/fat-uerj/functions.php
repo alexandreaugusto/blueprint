@@ -11,6 +11,7 @@ function fat_uerj_name_scripts() {
     wp_enqueue_style('jstree-css', get_template_directory_uri() . '/css/jstree-default.min.css');
     wp_enqueue_script('jstree', get_template_directory_uri() . '/js/jstree.min.js', array('jquery'), '1.0.0', false);
     wp_enqueue_script('download-js', get_template_directory_uri() . '/js/download.js', array(), '1.0.0', false);
+    wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array(), '1.0.0', false);
 }
 
 add_action('wp_enqueue_scripts', 'fat_uerj_name_scripts');
