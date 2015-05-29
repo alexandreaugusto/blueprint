@@ -1,4 +1,4 @@
-<?php
+    <?php
 /**
 * @package WordPress
 * @subpackage fat-uerj
@@ -45,9 +45,9 @@ get_header(); ?>
               <div class="hidden-md hidden-lg">
                 <strong class="text-uppercase center-block text-center">Compartilhe</strong>
                 <div class="shared">
-                  <a href="#" class="btn btn-info"><span class="iconshare-twitter"></span>Tweet</a>
-                  <a href="#" class="btn btn-primary"><span class="iconshare-facebook"></span>Share</a>
-                  <a href="#" class="btn btn-danger"><span class="iconshare-gplus"></span>Share</a>
+                  <a href="javascript:void(0);" onclick="popup('https://twitter.com/intent/tweet?url=<?php the_permalink(); ?>&text=<?php the_title(); ?>&via=fat-uerj', '<?php the_title(); ?>');" class="btn btn-info"><span class="iconshare-twitter"></span>Tweet</a>
+                  <a href="javascript:void(0);" onclick="popup('http://www.facebook.com/sharer.php?s=100&p[url]=<?php the_permalink(); ?><?php if ( '' != get_the_post_thumbnail() )?>&p[images][0]=<?php {echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) );} ?>&p[title]=<?php the_title(); ?>&p[summary]=<?php if(has_excerpt()) { echo get_the_excerpt(); } else { echo excerpt(25); } ?>', '<?php the_title(); ?>');" class="btn btn-primary"><span class="iconshare-facebook"></span>Share</a>
+                  <a href="javascript:void(0);" onclick="popup('https://plus.google.com/share?url=<?php the_permalink(); ?>', '<?php the_title(); ?>');" class="btn btn-danger"><span class="iconshare-gplus"></span>Share</a>
                 </div>
               </div>
               <div id="disqus_thread"></div>
