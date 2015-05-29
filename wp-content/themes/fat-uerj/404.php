@@ -7,7 +7,7 @@
             <div class="col-md-12">
                 <h3 class="text-uppercase">404 - Página não encontrada</h3>
                 <ul class="breadcrumb">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="<?php bloginfo("url") ?>">Home</a></li>
                     <li class="active">404 - Página não encontrada</li>
                 </ul>
             </div>
