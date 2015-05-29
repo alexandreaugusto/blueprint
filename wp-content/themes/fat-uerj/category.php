@@ -26,26 +26,15 @@ get_header(); ?>
     $category_id = get_cat_ID(single_cat_title('', false));
     $category_link = get_category_link($category_id);
     
-    $page = get_query_var('paged');
-    if(!empty($page)) {
-        global $wp_query;
-        query_posts(
-                array_merge(
-                        array(
-                        'posts_per_page' => 8,
-                        'paged' => $page
-                         ),
-                        $wp_query->query
-                )
-        );
-    }
+    $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    $category = &new WP_Query("cat=" . $category_id . "&showposts=8&paged=" . $page);
     
     ?>
     <div class="container main internal categoria">
       <div class="row">
         <div class="col-md-12">
           <?php
-            if ( have_posts() ) : $cont = 0; ?>
+            if ( $category->have_posts() ) : $category->the_post(); $cont = 0; ?>
           <?php
             while ( have_posts() ) : the_post(); ?>
           <?php if($cont++%4 == 0): ?><div class="row"><?php endif; ?>
@@ -54,7 +43,7 @@ get_header(); ?>
               <p><?php the_excerpt() ?></p>
               <a class="btn btn-primary" href="<?php the_permalink(); ?>" role="button">Saiba mais</a>
             </div>
-          <?php if($cont%4 == 0 || ($cont+1) == count(get_posts())): ?></div><?php endif; ?>
+          <?php if($cont%4 == 0): ?></div><?php endif; ?>
           <?php
             endwhile; // End Loop
             
