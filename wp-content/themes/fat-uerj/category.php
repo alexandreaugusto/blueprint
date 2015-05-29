@@ -41,7 +41,7 @@ get_header(); ?>
             <div class="col-md-3<?php if($cont == $category->post_count): ?> cold-md-offset-<?php echo (4 - $category->post_count);endif; ?>">
               <h2><?php the_title(); ?></h2>
               <p><?php the_excerpt() ?></p>
-              <a class="btn btn-primary" href="<?php the_permalink(); ?>" role="button"><?php echo $category->post_count; ?> Saiba mais</a>
+              <a class="btn btn-primary" href="<?php the_permalink(); ?>" role="button">Saiba mais</a>
             </div>
           <?php if($cont%4 == 0): ?></div><?php endif; ?>
           <?php if($cont < 8 && $cont == $category->post_count): ?></div><?php endif; ?>
