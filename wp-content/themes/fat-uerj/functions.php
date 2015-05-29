@@ -26,6 +26,9 @@ add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form'
 
 remove_action('wp_head', 'wp_generator');
 
+remove_action( 'wp_head', 'rsd_link' );
+remove_action( 'wp_head', 'wlwmanifest_link' );
+
 remove_filter('the_excerpt', 'wpautop');
 
 function wpt_remove_version() {
@@ -35,7 +38,7 @@ function wpt_remove_version() {
 add_filter('the_generator', 'wpt_remove_version');
 
 function custom_excerpt_length( $length ) {
-	return 45;
+	return 25;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
