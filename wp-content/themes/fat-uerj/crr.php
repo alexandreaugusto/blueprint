@@ -35,7 +35,7 @@ get_header();
                         </div>
                     </div>
                 </div>
-                <?php get_sidebar('pesquisa'); ?>
+                <?php get_sidebar('crr'); ?>
             </div>
         </div>
     <?php endwhile; ?>
