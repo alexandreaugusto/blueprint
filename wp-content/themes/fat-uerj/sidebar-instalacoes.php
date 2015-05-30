@@ -4,7 +4,7 @@
  * @subpackage fat-uerj
  * @since FAT-UERJ 1.0
  */
-    $related = new WP_Query(array('category_name' => 'instalacoes', 'orderby' => 'ID', 'order' => 'ASC'));
+    $related = new WP_Query(array('category_name' => 'instalacoes', 'orderby' => 'ID', 'order' => 'ASC', 'posts_per_page' => -1));
 ?>
                 <aside class="col-md-3">
                     <ul class="list-group">
