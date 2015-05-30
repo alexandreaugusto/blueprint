@@ -43,7 +43,7 @@
             <a href="#" class="btn btn-danger"><span class="iconshare-gplus"></span></a>
           </div>
 
-          <form class="navbar-form navbar-right input-group" action="<?php echo esc_url( get_permalink(749) ); ?>" method="get" role="search">
+          <form class="navbar-form navbar-right input-group hidden-xs" action="<?php echo esc_url( get_permalink(749) ); ?>" method="get" role="search">
             <div class="form-group">
               <div class="input-group">
                 <input type="text" class="form-control" name="cs" placeholder="O que você procura?">
