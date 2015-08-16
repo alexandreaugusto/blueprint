@@ -77,4 +77,4 @@ function tiny_mce_remove_unused_formats($init) {
 }
 add_filter('tiny_mce_before_init', 'tiny_mce_remove_unused_formats' );
 
-?>
+add_filter( 'attachments_default_instance', '__return_false' ); // disable the default instance

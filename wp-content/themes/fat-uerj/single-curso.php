@@ -94,21 +94,18 @@ get_header(); ?>
                             <li>
                                 <?php
                                     echo get_the_title();
-                                    $attachments = get_posts(
-                                            array('post_type' => 'attachment', 'posts_per_page' => -1,
-                                                'post_status' => 'any', 'post_parent' => null,
-                                                'meta_key' => 'arquivo_disciplina', 'meta_value' => get_the_ID()));
-                                    if ($attachments):
+                                    $attachments = new Attachments('discipline_attachments', get_the_ID());
+                                    if ($attachments->exist()):
                                 ?>
                                 <ul>
                                 <?php
-                                        foreach ( $attachments as $attachment ):
+                                        while ( $attachments->get() ):
                                 ?>
                                     <li data-jstree='{"icon":"<?php echo get_template_directory_uri(); ?>/img/file.png"}'>
-                                        <a href="<?php echo wp_get_attachment_url($attachment->ID); ?>" class="disciplina-link"><?php echo $attachment->post_title; ?></a>
+                                        <a href="<?php echo wp_get_attachment_url($attachments->id()); ?>" class="disciplina-link"><?php echo $attachments->field('title'); ?></a>
                                     </li>
                                 <?php
-                                        endforeach;
+                                        endwhile;
                                 ?>
                                 </ul>
                                 <?php

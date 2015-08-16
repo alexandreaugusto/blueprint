@@ -195,21 +195,17 @@ function show_files_discipline_in_course_meta_box() {
             $i = 1;
             while ($query->have_posts()) :
                 $query->the_post();
-                echo "<tr><td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;&raquo; ";
-                echo get_the_title() . "</td></tr>";
-                $attachments = get_posts(
-                        array('post_type' => 'attachment', 'posts_per_page' => -1,
-                            'post_status' => 'any', 'post_parent' => null,
-                            'meta_key' => 'arquivo_disciplina', 'meta_value' => get_the_ID()));
-                if ($attachments):
-                    foreach ($attachments as $attachment):
+                echo "<tr><td colspan='2' style='padding-left:25px'>&raquo; ";
+                echo "<a href='" . get_edit_post_link(get_the_ID()) . "'>" . get_the_title() . "</a></td></tr>";
+                $attachments = new Attachments('discipline_attachments', get_the_ID());
+                if ($attachments->exist()):
+                    while ($attachments->get()):
                         echo "<tr>";
-                        echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-                        echo "<a href='" . wp_get_attachment_url($attachment->ID) . "'>" . $attachment->post_title . "</a>";
+                        echo "<td style='padding-left:60px' colspan='2'>";
+                        echo "&raquo; <a href='" . wp_get_attachment_url($attachments->id()) . "' target='_blank'>" . $attachments->field( 'title' ) . "</a>";
                         echo "</td>";
-                        echo "<td><a class=\"button edit-attachment\" href=\"#\">Editar imagem</a></td>";
                         echo "</tr>";
-                    endforeach;
+                    endwhile;
                 endif;
             endwhile;
         endif;
@@ -231,3 +227,66 @@ function add_files_discipline_in_course_meta_box() {
 }
 
 add_action('add_meta_boxes', 'add_files_discipline_in_course_meta_box');
+
+function discipline_attachments( $attachments )
+{
+  $fields         = array(
+    array(
+      'name'      => 'title',                         // unique field name
+      'type'      => 'text',                          // registered field type
+      'label'     => __( 'Title', 'Arquivos da disciplina' ),    // label to display
+      'default'   => 'title',                         // default value upon selection
+    ),
+    array(
+      'name'      => 'caption',                       // unique field name
+      'type'      => 'textarea',                      // registered field type
+      'label'     => __( 'Caption', 'Arquivos' ),  // label to display
+      'default'   => 'caption',                       // default value upon selection
+    ),
+  );
+
+  $args = array(
+
+    // title of the meta box (string)
+    'label'         => 'Arquivos da disciplina',
+
+    // all post types to utilize (string|array)
+    'post_type'     => array( 'disciplina' ),
+
+    // meta box position (string) (normal, side or advanced)
+    'position'      => 'normal',
+
+    // meta box priority (string) (high, default, low, core)
+    'priority'      => 'high',
+
+    // allowed file type(s) (array) (image|video|text|audio|application)
+    'filetype'      => null,  // no filetype limit
+
+    // include a note within the meta box (string)
+    'note'          => 'Adicione arquivos aqui!',
+
+    // by default new Attachments will be appended to the list
+    // but you can have then prepend if you set this to false
+    'append'        => true,
+
+    // text for 'Attach' button in meta box (string)
+    'button_text'   => __( 'Adicionar arquivos', 'attachments' ),
+
+    // text for modal 'Attach' button (string)
+    'modal_text'    => __( 'Anexo', 'attachments' ),
+
+    // which tab should be the default in the modal (string) (browse|upload)
+    'router'        => 'browse',
+
+    // whether Attachments should set 'Uploaded to' (if not already set)
+    'post_parent'   => false,
+
+    // fields array
+    'fields'        => $fields,
+
+  );
+
+  $attachments->register( 'discipline_attachments', $args ); // unique instance name
+}
+
+add_action( 'attachments_register', 'discipline_attachments' );
