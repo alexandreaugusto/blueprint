@@ -56,7 +56,7 @@ get_header(); ?>
               <a href="<?php echo get_the_author_meta('usr_lattes', $coordenador['ID']); ?>">Currículo Lattes</a>
             </div>
             <div class="disciplinas col-md-8">
-              <h4 class="text-uppercase">Disciplinas</h4>
+              <h4 class="text-uppercase">Ementa das disciplinas</h4>
               <div id="disciplinas">
                 <ul>
                   <?php 

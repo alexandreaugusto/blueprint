@@ -122,6 +122,12 @@ add_action('admin_init', 'disable_revisions_disciplina');
 
 add_post_type_support('disciplina', array('thumbnail', 'tags'));
 
+function rem_editor_from_post_type() {
+    remove_post_type_support('disciplina', 'editor');
+}
+
+add_action('init', 'rem_editor_from_post_type');
+
 function create_taxonomy_disciplina_category() {
     register_taxonomy('tipo-disciplina', 'disciplina', array(
         'hierarchical' => true,
@@ -150,11 +156,82 @@ function restrict_manage_posts_disciplina() {
             $terms = get_terms($tax_slug);
             echo "<select name='$tax_slug' id='$tax_slug' class='postform'>";
             echo "<option value=''>Mostrar tudo</option>";
+            $termo = isset($_GET[$tax_slug])?$_GET[$tax_slug]:"";
             foreach ($terms as $term) {
-                echo '<option value=' . $term->slug, $_GET[$tax_slug] == $term->slug ? ' selected="selected"' : '', '>' . $term->name . ' (' . $term->count . ')</option>';
+                echo '<option value=' . $term->slug, $termo == $term->slug ? ' selected="selected"' : '', '>' . $term->name . ' (' . $term->count . ')</option>';
             }
             echo "</select>";
         }
+    }
+}
+
+add_action( 'restrict_manage_posts', 'cursos_disciplinas_admin_posts_filter_restrict_manage_posts' );
+/**
+ * First create the dropdown
+ * make sure to change POST_TYPE to the name of your custom post type
+ * 
+ * @author Ohad Raz
+ * 
+ * @return void
+ */
+function cursos_disciplinas_admin_posts_filter_restrict_manage_posts(){
+    $type = 'disciplina';
+    if (isset($_GET['post_type'])) {
+        $type = $_GET['post_type'];
+    }
+
+    //only add filter to post type you want
+    if ('disciplina' == $type) {
+        //change this to the list of values you want to show
+        //in 'label' => 'value' format
+
+        echo "<select name='ADMIN_FILTER_FIELD_VALUE'>";
+        echo "<option value=''>Todos os cursos</option>";
+            $current_v = isset($_GET['ADMIN_FILTER_FIELD_VALUE'])? $_GET['ADMIN_FILTER_FIELD_VALUE']:'';
+            $consurta = new WP_Query(array(
+                            'post_type' => 'curso',
+                            'orderby' => 'title',
+                            'order' => 'ASC',
+                            'posts_per_page' => -1
+                        ));
+
+            while ($consurta->have_posts()) :
+                $consurta->the_post();
+                printf
+                    (
+                        '<option value="%s"%s>%s</option>',
+                        get_the_ID(),
+                        get_the_ID() == $current_v? ' selected="selected"':'',
+                        get_the_title()
+                    );
+            endwhile;
+
+            wp_reset_postdata();
+
+        echo "</select>";
+    }
+}
+
+add_filter( 'parse_query', 'disciplinas_posts_filter' );
+/**
+ * if submitted filter by post meta
+ * 
+ * make sure to change META_KEY to the actual meta key
+ * and POST_TYPE to the name of your custom post type
+ * @author Ohad Raz
+ * @param  (wp_query object) $query
+ * 
+ * @return Void
+ */
+function disciplinas_posts_filter( $query ){
+    global $pagenow;
+    $type = 'disciplina';
+    if (isset($_GET['post_type'])) {
+        $type = $_GET['post_type'];
+    }
+    if ('disciplina' == $type && is_admin() && $pagenow=='edit.php' && isset($_GET['ADMIN_FILTER_FIELD_VALUE']) && $_GET['ADMIN_FILTER_FIELD_VALUE'] != '') {
+        $query->query_vars['meta_key'] = 'curso_disciplina';
+        $query->query_vars['meta_value'] = $_GET['ADMIN_FILTER_FIELD_VALUE'];
     }
 }
 
@@ -236,12 +313,6 @@ function discipline_attachments( $attachments )
       'type'      => 'text',                          // registered field type
       'label'     => __( 'Title', 'Arquivos da disciplina' ),    // label to display
       'default'   => 'title',                         // default value upon selection
-    ),
-    array(
-      'name'      => 'caption',                       // unique field name
-      'type'      => 'textarea',                      // registered field type
-      'label'     => __( 'Caption', 'Arquivos' ),  // label to display
-      'default'   => 'caption',                       // default value upon selection
     ),
   );
 
