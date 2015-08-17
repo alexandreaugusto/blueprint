@@ -60,7 +60,7 @@ get_header(); ?>
     <?php endwhile; ?>
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'rhianmolinari'; // Required - Replace example with your forum shortname
+    var disqus_shortname = 'fatuerj'; // Required - Replace example with your forum shortname
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
