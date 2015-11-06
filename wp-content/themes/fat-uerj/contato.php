@@ -7,6 +7,64 @@
  */
 get_header();
 ?>
+
+    <script src="<?php echo get_template_directory_uri() ?>/js/jquery.validate.min.js"></script>
+	<script>
+		jQuery(function($){
+			var validator = $("#form-contato").validate({  
+				submitHandler: function() {
+					$('.alert').addClass('hide');
+					$('.send-form').html('<i class="icon-spinner icon-spin icon-large"></i> Enviando');
+					
+					$.ajax({
+						method: "POST",
+						url: '/wp-content/themes/fat-uerj/mail.php',
+						data: { nome: $('.nome').val(), email: $('.email').val(), telefone: $('.telefone').val(), setor: $('.setor').val(), mensagem: $('.mensagem').val() },
+						success: function(data, textStatus, jqXHR) {
+							if (data == 'ok') {
+								$('.alert-success').removeClass('hide');
+								$('.send-form').html('Enviar');
+								$('#form-contato').trigger('reset');
+								
+								$('.has-success').each(function () {
+									$(this).removeClass('has-success');
+								});
+							}
+						},
+						error: function(jqXHR, textStatus, errorThrown) {
+							toastr.warning(textStatus);
+						}
+					});
+				},		
+				rules:{     
+					nome: {
+						required:true,
+					},
+					email: {  
+						required:true,
+						email: true,
+					},
+					mensagem: {
+						required:true,
+					}
+				},
+				errorPlacement: function(error,element) {
+					return false;
+				},
+				highlight: function(element, errorClass) {
+					var target = $(element).closest('.form-group');
+					target.addClass('has-error')
+					target.removeClass('has-success');
+				},
+				unhighlight: function (element, errorClass) {
+					var target = $(element).closest('.form-group');
+					target.removeClass('has-error');
+					target.addClass('has-success');
+				}
+			});
+		});
+	</script>
+
 <?php if (have_posts()) while (have_posts()) : the_post(); ?>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron internal">
@@ -34,7 +92,7 @@ get_header();
                     <div class="form-group"><!-- <div class="form-group has-success has-feedback"> -->
                       <label for="inputName" class="col-lg-2 control-label">Nome</label>
                       <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputName" name="nome" placeholder="Digite seu nome...">
+                        <input type="text" class="form-control nome" id="inputName" name="nome" placeholder="Digite seu nome...">
                         <!--<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         <span id="inputSuccess2Status" class="sr-only">(success)</span>-->
                       </div>
@@ -42,42 +100,40 @@ get_header();
                     <div class="form-group"><!-- <div class="form-group has-error"> -->
                       <label for="inputEmail" class="col-lg-2 control-label">E-mail</label>
                       <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputEmail" name="email" placeholder="Qual seu e-mail?">
+                        <input type="text" class="form-control email" id="inputEmail" name="email" placeholder="Qual seu e-mail?">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="inputTel" class="col-lg-2 control-label">Telefone</label>
                       <small class="col-lg-10 pull-right">Opcional</small>
                       <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputTel" name="telefone" placeholder="Deixe seu telefone conosco">
+                        <input type="text" class="form-control telefone" id="inputTel" name="telefone" placeholder="Deixe seu telefone conosco">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="select" class="col-lg-2 control-label">Setor</label>
                       <div class="col-lg-10">
-                        <select class="form-control" id="select" name="setor">
+                        <select class="form-control setor" id="select" name="setor">
                           <option value="geral">Geral</option>
-                          <option value="secretarias">Secretarias</option>
-                          <option value="reitoria">Reitoria</option>
                           <option value="direcao">Direção</option>
-                          <option value="administracao">Administração</option>
-                          <option value="tesouraria">Tesouraria</option>
+                          <option value="pos">PÓS</option>
+                          <option value="departamentos">Departamentos</option>
                         </select>
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="textArea" class="col-lg-2 control-label">Mensagem</label>
                       <div class="col-lg-10">
-                        <textarea class="form-control" rows="3" id="textArea" name="mensagem"></textarea>
+                        <textarea class="form-control mensagem" rows="3" id="textArea" name="mensagem"></textarea>
                         <span class="help-block">Digite uma mensagem de forma clara para que possamos responder o mais brevemente possível.</span>
                       </div>
                     </div>
                     <div class="form-group">
                       <div class="col-xs-3 col-lg-offset-2">
-                        <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+						<button type="submit" class="btn btn-primary btn-lg send-form">Enviar</button>
                       </div>
                       <div class="col-xs-9 col-lg-7">
-                        <!--<div class="alert alert-success" role="alert"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Sua mensagem foi enviada com sucesso!</div>-->
+                        <div class="alert alert-success hide" role="alert"><span class="glyphicon glyphicon-ok"></span> Sua mensagem foi enviada com sucesso!</div>
                       </div>
                     </div>
                   </fieldset>
