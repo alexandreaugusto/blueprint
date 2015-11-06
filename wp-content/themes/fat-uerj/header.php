@@ -38,9 +38,8 @@
           </button>
           <a class="navbar-brand" href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('template_url'); ?>/img/logo.png" alt="Faculdade de Tecnologia UERJ - Resende"></a>
           <div class="pull-right share-default hidden-xs">
-            <a href="#" class="btn btn-info"><span class="iconshare-twitter"></span></a>
-            <a href="#" class="btn btn-primary"><span class="iconshare-facebook"></span></a>
-            <a href="#" class="btn btn-danger"><span class="iconshare-gplus"></span></a>
+            <a href="https://twitter.com/UERJ_oficial" class="btn btn-info"><span class="iconshare-twitter"></span></a>
+            <a href="https://www.facebook.com/UniversidadedoEstadodoRiodeJaneiro" class="btn btn-primary"><span class="iconshare-facebook"></span></a>
           </div>
 
           <form class="navbar-form navbar-right input-group hidden-xs" action="<?php echo esc_url( get_permalink(749) ); ?>" method="get" role="search">
