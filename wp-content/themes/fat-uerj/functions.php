@@ -31,6 +31,41 @@ function fat_uerj_name_scripts() {
 
 add_action('wp_enqueue_scripts', 'fat_uerj_name_scripts');
 
+// Adding the Open Graph in the Language Attributes
+function add_opengraph_doctype( $output ) {
+		return $output . ' xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
+	}
+add_filter('language_attributes', 'add_opengraph_doctype');
+
+// Add Open Graph Meta Info
+function insert_fb_in_head() {
+	global $post;
+	if ( is_singular()) { //if it is not a post or a page
+        //echo '<meta property="fb:admins" content="APP_USER_ID"/>';
+        echo '<meta property="og:title" content="' . get_the_title() . '"/>';
+        echo '<meta property="og:type" content="article"/>';
+        echo '<meta property="og:url" content="' . get_permalink() . '"/>';
+        echo '<meta property="og:site_name" content="' . get_bloginfo() . '"/>';
+	}
+	if(!has_post_thumbnail( $post->ID )) { //the post does not have featured image, use a default image
+		$default_image = get_template_directory_uri() . "/img/logo-fat-300.png"; //replace this with a default image on your server or an image in your media library
+		echo '<meta property="og:image" content="' . $default_image . '"/>';
+	} else {
+		$thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
+		$imageDimensions = getimagesize(esc_attr( $thumbnail_src[0] ));
+		
+		if ($imageDimensions[0] < 200 || $imageDimensions[1] < 200) {
+			$default_image = get_template_directory_uri() . "/img/logo-fat-300.png"; //replace this with a default image on your server or an image in your media library
+			echo '<meta property="og:image" content="' . $default_image . '"/>';
+		} else {
+			echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
+		}
+	}
+	echo "
+";
+}
+add_action( 'wp_head', 'insert_fb_in_head', 5 );
+
 add_theme_support('menus');
 
 add_filter('show_admin_bar', '__return_false');
